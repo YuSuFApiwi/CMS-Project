@@ -1,21 +1,14 @@
         </div>
-<<<<<<< HEAD
         <!-- container-fluid -->
         
         </div>
-=======
->>>>>>> 3db4c6eb7d31a5891f29c19c2d31bf32eb14a6ea
         <!-- End of Main Content -->
 
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-<<<<<<< HEAD
                         <span>Copyright &copy; <?php echo  date('Y'); ?> by <code></></code> Youssef</span>
-=======
-                        <span>Copyright &copy; Your Website 2021</span>
->>>>>>> 3db4c6eb7d31a5891f29c19c2d31bf32eb14a6ea
                     </div>
                 </div>
             </footer>

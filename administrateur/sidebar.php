@@ -1,9 +1,5 @@
 <!-- Sidebar -->
-<<<<<<< HEAD
 <ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
-=======
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
->>>>>>> 3db4c6eb7d31a5891f29c19c2d31bf32eb14a6ea
 
 <!-- Sidebar - Brand -->
 <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -16,18 +12,10 @@
 <!-- Divider -->
 <hr class="sidebar-divider my-0">
 
-<<<<<<< HEAD
 <li class="nav-item active">
     <a class="nav-link" href="index.php">
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>Tableau de bord</span></a>
-=======
-<!-- Nav Item - Dashboard -->
-<li class="nav-item active">
-    <a class="nav-link" href="index.html">
-        <i class="fas fa-fw fa-tachometer-alt"></i>
-        <span>Dashboard</span></a>
->>>>>>> 3db4c6eb7d31a5891f29c19c2d31bf32eb14a6ea
 </li>
 
 <!-- Divider -->
@@ -43,22 +31,12 @@
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
         aria-expanded="true" aria-controls="collapseTwo">
         <i class="fas fa-fw fa-cog"></i>
-<<<<<<< HEAD
         <span>Pages</span>
     </a>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white collapse-inner rounded">
             <a class="collapse-item" href="page.php">Afficher les pages</a>
             <a class="collapse-item" href="page-add.php">nouvelle page</a>
-=======
-        <span>Components</span>
-    </a>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Custom Components:</h6>
-            <a class="collapse-item" href="buttons.html">Buttons</a>
-            <a class="collapse-item" href="cards.html">Cards</a>
->>>>>>> 3db4c6eb7d31a5891f29c19c2d31bf32eb14a6ea
         </div>
     </div>
 </li>

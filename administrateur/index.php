@@ -1,11 +1,5 @@
 <?php require_once('header.php'); ?>
 
-<<<<<<< HEAD
-=======
-<!-- Begin Page Content -->
-<div class="container-fluid">
-
->>>>>>> 3db4c6eb7d31a5891f29c19c2d31bf32eb14a6ea
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
@@ -331,10 +325,4 @@
     </div>
 </div>
 
-<<<<<<< HEAD
-
-=======
-</div>
-<!-- /.container-fluid -->
->>>>>>> 3db4c6eb7d31a5891f29c19c2d31bf32eb14a6ea
 <?php require_once('footer.php') ?>

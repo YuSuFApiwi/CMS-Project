@@ -170,8 +170,8 @@
     <li class="nav-item dropdown no-arrow">
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION["user"]["nom_complet"] ?></span>
-            <?php if(!empty($_SESSION["user"]["photo"]) && $_SESSION["user"]["photo"] !== "avatar0.jpg")
+            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION["utilisateur"]["nom_complet"] ?></span>
+            <?php if(!empty($_SESSION["utilisateur"]["photo"]) && $_SESSION["utilisateur"]["photo"] !== "avatar0.jpg")
                 {
                    echo '<img class="img-profile rounded-circle" src="../assets/uploads/avatars/' . $_SESSION["user"]["photo"] . '">';
                 }else{

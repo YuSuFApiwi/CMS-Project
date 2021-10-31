@@ -4,7 +4,7 @@ session_start();
 include("config.php");
 $error_message='';
 
-if (isset($_SESSION["user"])) {
+if (isset($_SESSION["utilisateur"])) {
     header('location: index.php');
     exit;
 }
@@ -32,7 +32,7 @@ if(isset($_POST['form1'])) {
                 $error_message = 'Le mot de passe ne correspond pas<br>';
             } else {       
                 echo "Hi guys";
-                $_SESSION['user'] = $row;
+                $_SESSION['utilisateur'] = $row;
                 header("location: index.php");
             }
         }

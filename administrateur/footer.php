@@ -1,11 +1,14 @@
         </div>
+        <!-- container-fluid -->
+        
+        </div>
         <!-- End of Main Content -->
 
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        <span>Copyright &copy; <?php echo  date('Y'); ?> by <code></></code> Youssef</span>
                     </div>
                 </div>
             </footer>
@@ -58,6 +61,12 @@
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-bar-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
+    <!-- Page level plugins -->
+    <script src="js/vendor/jquery.dataTables.min.js"></script>
+    <script src="js/vendor/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/datatables-demo.js"></script>
 
 </body>
 </html>

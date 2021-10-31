@@ -5,7 +5,7 @@ include("config.php");
 $error_message = '';
 $success_message = '';
 
-if(!isset($_SESSION['user'])) {
+if(!isset($_SESSION['utilisateur'])) {
 	header('location: login.php');
 	exit;
 }
@@ -28,6 +28,7 @@ if(!isset($_SESSION['user'])) {
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
+    <link href="css/vender/dataTables.bootstrap4.min.css" rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="css/admin.min.css" rel="stylesheet">
 </head>
@@ -40,3 +41,6 @@ if(!isset($_SESSION['user'])) {
             <!-- Main Content -->
             <div id="content">
                 <?php require_once('navbar.php') ?>
+            
+            <!-- Begin Page Content -->
+            <div class="container-fluid">

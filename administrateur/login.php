@@ -4,7 +4,11 @@ session_start();
 include("config.php");
 $error_message='';
 
+<<<<<<< HEAD
 if (isset($_SESSION["utilisateur"])) {
+=======
+if (isset($_SESSION["user"])) {
+>>>>>>> 3db4c6eb7d31a5891f29c19c2d31bf32eb14a6ea
     header('location: index.php');
     exit;
 }
@@ -32,7 +36,11 @@ if(isset($_POST['form1'])) {
                 $error_message = 'Le mot de passe ne correspond pas<br>';
             } else {       
                 echo "Hi guys";
+<<<<<<< HEAD
                 $_SESSION['utilisateur'] = $row;
+=======
+                $_SESSION['user'] = $row;
+>>>>>>> 3db4c6eb7d31a5891f29c19c2d31bf32eb14a6ea
                 header("location: index.php");
             }
         }

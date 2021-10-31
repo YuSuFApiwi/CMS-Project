@@ -1,14 +1,21 @@
         </div>
+<<<<<<< HEAD
         <!-- container-fluid -->
         
         </div>
+=======
+>>>>>>> 3db4c6eb7d31a5891f29c19c2d31bf32eb14a6ea
         <!-- End of Main Content -->
 
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
+<<<<<<< HEAD
                         <span>Copyright &copy; <?php echo  date('Y'); ?> by <code></></code> Youssef</span>
+=======
+                        <span>Copyright &copy; Your Website 2021</span>
+>>>>>>> 3db4c6eb7d31a5891f29c19c2d31bf32eb14a6ea
                     </div>
                 </div>
             </footer>
@@ -61,12 +68,15 @@
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-bar-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
+<<<<<<< HEAD
     <!-- Page level plugins -->
     <script src="js/vendor/jquery.dataTables.min.js"></script>
     <script src="js/vendor/dataTables.bootstrap4.min.js"></script>
 
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
+=======
+>>>>>>> 3db4c6eb7d31a5891f29c19c2d31bf32eb14a6ea
 
 </body>
 </html>

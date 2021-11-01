@@ -45,9 +45,14 @@
                 </div>
                 <div class="col-md-12">
                     <div class="row">
+                        <div class="col-md-12">
+                            <div style="height: 53vh;" class="parent-img">
+                                <img class="h-100 img-thumbnail w-100" id="img-banner" src="../assets/uploads/banner/defualt-banner.jpg" alt="image baniere">
+                            </div>
+                        </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="photo">Bannière <span class="text-muted">(optionnel)</span></label>
+                                <label for="photo">Bannière (1280x375) <span class="text-muted">(optionnel)</span></label>
                                 <input type="file" class="form-control" name="photo" id="photo"></textarea>
                             </div>
                         </div>

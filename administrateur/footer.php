@@ -31,15 +31,17 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Prêt à partir?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">
+                Sélectionnez « Déconnexion » ci-dessous si vous êtes prêt à mettre fin à votre session en cours.
+                </div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
+                    <a class="btn btn-info" href="logout.php">Déconnexion</a>
                 </div>
             </div>
         </div>
@@ -61,15 +63,29 @@
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-bar-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
-<<<<<<< HEAD
     <!-- Page level plugins -->
     <script src="js/vendor/jquery.dataTables.min.js"></script>
     <script src="js/vendor/dataTables.bootstrap4.min.js"></script>
 
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
-=======
->>>>>>> 3db4c6eb7d31a5891f29c19c2d31bf32eb14a6ea
+
+    <script>
+        $("#photo").change(function() {
+            var input = this;
+            var $this = $(this);
+            console.log('photo upload');
+            console.log(input);
+            var $parent = $('.parent-img');
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $parent.find('img').attr("src", "" + e.target.result + "");
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        });
+    </script>
 
 </body>
 </html>

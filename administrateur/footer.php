@@ -70,7 +70,26 @@
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
 
+    <?php 
+        if (isset($after_js)) {
+            echo $after_js;
+        }        
+    ?>
+
     <script>
+        $(function(){
+            "use strict";
+            $('#content_page').summernote({
+                height: 300,
+            });
+
+
+            
+        });
+        $('#confirm-delete').on('show.bs.modal', function(e) {
+	        $(this).find('.btn-confirm').attr('href', $(e.relatedTarget).data('href'));
+	    });
+
         $("#photo").change(function() {
             var input = this;
             var $this = $(this);

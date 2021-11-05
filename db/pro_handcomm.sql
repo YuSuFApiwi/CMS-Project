@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  sam. 30 oct. 2021 à 18:41
+-- Généré le :  ven. 05 nov. 2021 à 02:43
 -- Version du serveur :  10.1.38-MariaDB
 -- Version de PHP :  7.3.2
 
@@ -81,7 +81,7 @@ CREATE TABLE `news` (
 --
 
 CREATE TABLE `page` (
-  `page_id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `page_name` varchar(220) DEFAULT NULL,
   `page_slug` varchar(220) DEFAULT NULL,
   `page_content` mediumtext,
@@ -90,7 +90,7 @@ CREATE TABLE `page` (
   `status` varchar(30) DEFAULT NULL,
   `meta_title` varchar(225) DEFAULT NULL,
   `meta_keyword` mediumtext,
-  `meta_discription` mediumtext
+  `meta_description` mediumtext
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -178,7 +178,7 @@ ALTER TABLE `news`
 -- Index pour la table `page`
 --
 ALTER TABLE `page`
-  ADD PRIMARY KEY (`page_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `settings`
@@ -203,10 +203,16 @@ ALTER TABLE `utilisateur`
 --
 
 --
+-- AUTO_INCREMENT pour la table `page`
+--
+ALTER TABLE `page`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Contraintes pour les tables déchargées

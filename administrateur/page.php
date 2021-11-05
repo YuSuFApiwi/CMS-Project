@@ -28,29 +28,32 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="text-center">12</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td>61</td>
-                        <td>2011/04/25</td>
-                        <td class="text-center">
-                            <a href="#" class="btn btn-info btn-circle btn-sm">
+                <?php
+            	$i=0;
+            	$statement = $pdo->prepare("SELECT * FROM page ORDER BY id ASC");
+            	$statement->execute();
+            	$result = $statement->fetchAll(PDO::FETCH_ASSOC);							
+            	foreach ($result as $row) {
+            		$i++;
+            		?>
+					<tr>
+	                    <td class="text-center"><?php echo $i; ?></td>
+	                    <td><?php echo $row['page_name']; ?></td>
+	                    <td><?php echo $row['page_slug']; ?></td>
+	                    <td><?php echo $row['page_layout']; ?></td>
+	                    <td><?php echo $row['status']; ?></td>
+	                    <td>
+	                        <a href="page-edit.php?id=<?php echo $row['id']; ?>" class="btn btn-info btn-circle btn-sm">
                                 <i class="fas fa-edit"></i>
                             </a>
-                            <a href="#" class="btn btn-danger btn-circle btn-sm">
+	                        <a href="#" class="btn btn-danger btn-circle btn-sm" data-href="page-delete.php?id=<?php echo $row['id']; ?>" data-toggle="modal" data-target="#confirm-delete">
                                 <i class="fas fa-trash"></i>
                             </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>12</td>
-                        <td>Accountant</td>
-                        <td>Tokyo</td>
-                        <td>63</td>
-                        <td>2011/07/25</td>
-                        <td>$170,750</td>
-                    </tr>
+	                    </td>
+	                </tr>
+            		<?php
+            	}
+            	?>
                 </tbody>
                 <!-- Footer Table -->
                 <tfoot>
@@ -64,6 +67,26 @@
                     </tr>
                 </tfoot>
             </table>
+        </div>
+    </div>
+    <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Prêt à partir?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                Sélectionnez « Déconnexion » ci-dessous si vous êtes prêt à mettre fin à votre session en cours.
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
+                    <a class="btn btn-info btn-confirm">Suprime</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>

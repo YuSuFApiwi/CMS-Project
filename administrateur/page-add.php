@@ -126,7 +126,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div style="height: 53vh;" class="parent-img">
-                                <img class="h-100 img-thumbnail w-100" id="img-banner" src="../assets/uploads/banner/defualt-banner.jpg" alt="image baniere">
+                                <img class="h-100 img-thumbnail w-100" id="img-banner" src="../assets/uploads/banners/defualt-banner.jpg" alt="image baniere">
                             </div>
                         </div>
                         <div class="col-md-6">

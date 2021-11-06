@@ -325,4 +325,9 @@
     </div>
 </div>
 
-<?php require_once('footer.php') ?>
+<?php 
+    $after_js = '<script src="js/vendor/Chart.min.js"></script>';
+    $after_js .= '<script src="js/demo/chart-bar-demo.js"></script>';
+    $after_js .= '<script src="js/demo/chart-pie-demo.js"></script>';
+    require_once('footer.php')
+?>

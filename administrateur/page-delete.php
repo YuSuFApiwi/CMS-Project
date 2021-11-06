@@ -20,8 +20,8 @@ foreach ($result as $row) {
 	$banner = $row['banner'];
 }
 
-if($banner!='') {
-	unlink('../assets/uploads/banners'.$banner);	
+if($banner != '') {
+	unlink('../assets/uploads/banners/'.$banner);
 }
 //Delete from page
 $statement = $pdo->prepare("DELETE FROM page WHERE id=?");

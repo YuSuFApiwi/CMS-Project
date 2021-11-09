@@ -145,13 +145,13 @@ if(isset($_POST['form2'])) {
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="new-password">Mot de passe <span class="text-danger">*</span></label>
-                    <input type="password" class="form-control" name="new_password" id="new-password" autocomplete="new-password">
+                    <input type="password" class="form-control" name="new_password" placeholder="Mot de passe" id="new-password" autocomplete="new-password">
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="conferm-passwrod">Retaper le mot de passe <span class="text-danger">*</span></label>
-                    <input type="password" class="form-control" name="conferm_password" id="conferm-password" autocomplete="new-password">
+                    <input type="password" class="form-control" name="conferm_password" placeholder="Retaper le mot de passe" id="conferm-password" autocomplete="new-password">
                 </div>
             </div>
             <div class="col-md-12">

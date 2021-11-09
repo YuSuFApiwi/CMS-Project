@@ -65,7 +65,8 @@
     <script>
         $(function(){
             "use strict";
-            $('#content_page').summernote({
+            $('[data-toggle="tooltip"]').tooltip();
+            $('#content_page,#content-news').summernote({
                 height: 300,
             });
             

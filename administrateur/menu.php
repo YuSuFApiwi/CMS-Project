@@ -1,20 +1,19 @@
 <?php
-    $title = 'Voir toutes les pages';
+    $title = 'Voir toutes les menus';
     $before_css ='<link href="css/vender/dataTables.bootstrap4.min.css" rel="stylesheet">';
     require_once('header.php')
 ?>
 
-
-<h1 class="h3 mb-2 text-gray-800">Les Pages</h1>
+<h1 class="h3 mb-2 text-gray-800">Les menus</h1>
 <div class="card shadow mb-4">
     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-        <h6 class="m-0 font-weight-bold text-primary">Afficher toutes les pages</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Afficher toutes les menus</h6>
         <div>
-            <a href="page-add.php" class="btn btn-info btn-icon-split">
+            <a href="menu-add.php" class="btn btn-info btn-icon-split">
                 <span class="icon text-white-50">
                     <i class="fas fa-plus"></i>
                 </span>
-                <span class="text">Ajouter une nouvelle page</span>
+                <span class="text">Créer un menu</span>
             </a>
         </div>
     </div>
@@ -24,17 +23,18 @@
                 <thead>
                     <tr>
                         <th>N°</th>
-                        <th>Nom de la page</th>
+                        <th>Type de menu</th>
+                        <th>Nom du menu</th>
                         <th>Slug</th>
-                        <th>Mise en page</th>
-                        <th>Statut</th>
+                        <th>Ordre des menus</th>
+                        <th>URL</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                 <?php
             	$i=0;
-            	$statement = $pdo->prepare("SELECT * FROM page ORDER BY id DESC");
+            	$statement = $pdo->prepare("SELECT * FROM menu ORDER BY id DESC");
             	$statement->execute();
             	$result = $statement->fetchAll(PDO::FETCH_ASSOC);							
             	foreach ($result as $row) {
@@ -42,23 +42,19 @@
             		?>
 					<tr>
 	                    <td class="text-center"><?php echo $i; ?></td>
-	                    <td><?php echo $row['page_name']; ?></td>
-	                    <td><?php echo $row['page_slug']; ?></td>
-	                    <td><?php echo $row['page_layout']; ?></td>
-	                    <td>
-                            <?php 
-                                if (strtolower($row['status']) == 'active') {
-                                    echo '<span class="badge badge-success">Active</span>';
-                                } else{
-                                    echo '<span class="badge badge-secondary">InActive</span>';
-                                }
-                            ?>
-                        </td>
-	                    <td>
-	                        <a href="page-edit.php?id=<?php echo $row['id']; ?>" class="btn btn-info btn-circle btn-sm">
-                                <i class="fas fa-edit"></i>
+	                    <td><?php echo $row['menu_type']; ?></td>
+	                    <td><?php echo $row['menu_name']; ?></td>
+	                    <td><?php echo $row['category_or_page_slug']; ?></td>
+	                    <td class="text-center"><?php echo $row['menu_order']; ?></td>
+	                    <td class="text-center">
+                            <?php if($row['menu_type'] == 'Autre'): ?>
+                            <a href="<?php echo $row['menu_url']; ?>" target="_blanck" class="btn btn-secondary btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="<?php echo $row['menu_url']; ?>">
+                                <i class="fas fa-link"></i>
                             </a>
-	                        <a href="#" class="btn btn-danger btn-circle btn-sm" data-href="page-delete.php?id=<?php echo $row['id']; ?>" data-toggle="modal" data-target="#confirm-delete">
+                            <?php endif ?>
+                        </td>
+	                    <td class="text-center">
+	                        <a href="javascript:void(0);" class="btn btn-danger btn-circle btn-sm" data-href="menu-delete.php?id=<?php echo $row['id']; ?>" data-toggle="modal" data-target="#confirm-delete">
                                 <i class="fas fa-trash"></i>
                             </a>
 	                    </td>
@@ -71,10 +67,11 @@
                 <tfoot>
                     <tr>
                         <th>N°</th>
-                        <th>Nom de la page</th>
+                        <th>Type de menu</th>
+                        <th>Nom du menu</th>
                         <th>Slug</th>
-                        <th>Mise en page</th>
-                        <th>Statut</th>
+                        <th>Ordre des menus</th>
+                        <th>URL</th>
                         <th>Action</th>
                     </tr>
                 </tfoot>
@@ -92,7 +89,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                Voulez-vous supprimer cette page.
+                Voulez-vous supprimer cette menu.
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
@@ -103,11 +100,12 @@
     </div>
 </div>
 
-
 <?php 
-
     $after_js = '<script src="js/vendor/jquery.dataTables.min.js"></script>';
     $after_js .= '<script src="js/vendor/dataTables.bootstrap4.min.js"></script>';
     $after_js .= '<script src="js/demo/datatables-demo.js"></script>';
     require_once('footer.php') 
 ?>
+
+
+

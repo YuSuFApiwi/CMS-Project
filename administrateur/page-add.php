@@ -119,7 +119,7 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="content_page">Contenu de la page <span class="text-danger">*</span></label>
-                        <textarea rows="15" class="form-control" name="content" style="min-height: 150px;" id="content_page"></textarea>
+                        <textarea rows="15" minlength="200" class="form-control" name="content" required style="min-height: 150px;" id="content_page"></textarea>
 					</div>	
                 </div>
                 <div class="col-md-12">

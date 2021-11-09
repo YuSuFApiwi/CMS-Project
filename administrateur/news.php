@@ -1,20 +1,20 @@
 <?php
-    $title = 'Voir toutes les pages';
+    $title = 'Voir toutes les nouvelles';
     $before_css ='<link href="css/vender/dataTables.bootstrap4.min.css" rel="stylesheet">';
     require_once('header.php')
 ?>
 
 
-<h1 class="h3 mb-2 text-gray-800">Les Pages</h1>
+<h1 class="h3 mb-2 text-gray-800">Les nouvelles</h1>
 <div class="card shadow mb-4">
     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-        <h6 class="m-0 font-weight-bold text-primary">Afficher toutes les pages</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Afficher toutes les nouvelles</h6>
         <div>
-            <a href="page-add.php" class="btn btn-info btn-icon-split">
+            <a href="news-add.php" class="btn btn-info btn-icon-split">
                 <span class="icon text-white-50">
                     <i class="fas fa-plus"></i>
                 </span>
-                <span class="text">Ajouter une nouvelle page</span>
+                <span class="text">Ajouter un nouvel article</span>
             </a>
         </div>
     </div>
@@ -24,17 +24,18 @@
                 <thead>
                     <tr>
                         <th>N°</th>
-                        <th>Nom de la page</th>
-                        <th>Slug</th>
-                        <th>Mise en page</th>
-                        <th>Statut</th>
+                        <th>Image</th>
+                        <th>Titre</th>
+                        <th>Des détails</th>
+                        <th>Catégorie</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                 <?php
             	$i=0;
-            	$statement = $pdo->prepare("SELECT * FROM page ORDER BY id DESC");
+            	$statement = $pdo->prepare("SELECT t1.id,t1.news_title,t1.news_content,t1.photo,t1.category_id,t2.id,t2.category_name 
+                FROM news t1 JOIN categories t2 ON t1.category_id = t2.id ORDER BY t1.id DESC");
             	$statement->execute();
             	$result = $statement->fetchAll(PDO::FETCH_ASSOC);							
             	foreach ($result as $row) {
@@ -42,23 +43,30 @@
             		?>
 					<tr>
 	                    <td class="text-center"><?php echo $i; ?></td>
-	                    <td><?php echo $row['page_name']; ?></td>
-	                    <td><?php echo $row['page_slug']; ?></td>
-	                    <td><?php echo $row['page_layout']; ?></td>
 	                    <td>
-                            <?php 
-                                if (strtolower($row['status']) == 'active') {
-                                    echo '<span class="badge badge-success">Active</span>';
-                                } else{
-                                    echo '<span class="badge badge-secondary">InActive</span>';
+                            <?php
+                                if($row['photo'] == '')
+                                {
+                                    echo '<img src="../assets/uploads/news/defualt-news.jpg" height="60px" width="100px" alt="défaut Photo news" style="width:100px;">';
                                 }
-                            ?>
+                                else
+                                {
+                                    echo '<img src="../assets/uploads/news/'.$row['photo'].'" height="60px" width="100px" alt="'.substr($row['news_title'],0,20).'" style="width:100px;">';
+                                }
+							?>
                         </td>
 	                    <td>
-	                        <a href="page-edit.php?id=<?php echo $row['id']; ?>" class="btn btn-info btn-circle btn-sm">
+                            <?php echo (strlen($row['news_title']) > 40) ? substr($row['news_title'],0,40) . ' ...' : $row['news_title']; ?>
+                        </td>
+	                    <td>
+                            <?php echo (strlen($row['news_content']) > 120) ? substr($row['news_content'],0,120) . ' ...' : $row['news_content']; ?>
+                        </td>
+	                    <td><?php echo $row['category_name']; ?></td>
+	                    <td>
+	                        <a href="news-edit.php?id=<?php echo $row['id']; ?>" class="btn btn-info btn-circle btn-sm">
                                 <i class="fas fa-edit"></i>
                             </a>
-	                        <a href="#" class="btn btn-danger btn-circle btn-sm" data-href="page-delete.php?id=<?php echo $row['id']; ?>" data-toggle="modal" data-target="#confirm-delete">
+	                        <a href="#" class="btn btn-danger btn-circle btn-sm" data-href="news-delete.php?id=<?php echo $row['id']; ?>" data-toggle="modal" data-target="#confirm-delete">
                                 <i class="fas fa-trash"></i>
                             </a>
 	                    </td>
@@ -71,10 +79,10 @@
                 <tfoot>
                     <tr>
                         <th>N°</th>
-                        <th>Nom de la page</th>
-                        <th>Slug</th>
-                        <th>Mise en page</th>
-                        <th>Statut</th>
+                        <th>Image</th>
+                        <th>Titre</th>
+                        <th>Des détails</th>
+                        <th>Catégorie</th>
                         <th>Action</th>
                     </tr>
                 </tfoot>
@@ -92,7 +100,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                Voulez-vous supprimer cette page.
+                Voulez-vous supprimer cette news.
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>

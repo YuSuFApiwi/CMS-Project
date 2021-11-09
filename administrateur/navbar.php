@@ -173,7 +173,7 @@
             <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION["utilisateur"]["nom_complet"] ?></span>
             <?php if(!empty($_SESSION["utilisateur"]["photo"]) && $_SESSION["utilisateur"]["photo"] !== "avatar0.jpg")
                 {
-                   echo '<img class="img-profile rounded-circle" src="../assets/uploads/avatars/' . $_SESSION["user"]["photo"] . '">';
+                   echo '<img class="img-profile rounded-circle" src="../assets/uploads/avatars/' . $_SESSION["utilisateur"]["photo"] . '">';
                 }else{
                     echo '<img class="img-profile rounded-circle" src="../assets/uploads/avatars/avatar0.jpg">';
                 } ?>

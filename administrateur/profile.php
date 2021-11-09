@@ -5,28 +5,76 @@
 
 <?php
 if(isset($_POST['form1'])) {
-	$valid = 1;
-	if(empty($_POST['menu_category_and_slug'])) {
-        $valid = 0;
-        $error_message = "Vous devez avoir à sélectionner une catégorie comme nom de menu";
-    }
-    if(empty($_POST['menu_order'])) {
-        $valid = 0;
-        $error_message = "L'ordre des menus ne peut pas être vide";
-    }
-    if($_POST['menu_avant'] == '') {
-        $valid = 0;
-        $error_message = "Vous devez avoir à sélectionner un parent pour ce menu";
-    }
 
-	if($valid == 1) {
-    	$menu_cns = explode('@1@',$_POST['menu_category_and_slug']);
+    if($_SESSION['utilisateur']['role'] == 'Admin') {
+		$valid = 1;
 
-		$statement = $pdo->prepare("INSERT INTO menu (menu_type,menu_name,category_or_page_slug,menu_order,menu_parent,menu_url) VALUES (?,?,?,?,?,?)");
-		$statement->execute(array('Catégorie',$menu_cns[0],$menu_cns[1],$_POST['menu_order'],$_POST['menu_avant'],''));
+	    if(empty($_POST['fullname'])) {
+	        $valid = 0;
+	        $error_message = "Le nom ne peut pas être vide";
+	    }
 
-    	$success_message = 'Le menu a été ajouté avec succès.';
-    }
+	    if(empty($_POST['email'])) {
+	        $valid = 0;
+	        $error_message = "L'adresse e-mail ne peut pas être vide";
+	    } else {
+	    	if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === false) {
+		        $valid = 0;
+		        $error_message = "L'adresse e-mail doit être valide";
+		    } else {
+		    	$statement = $pdo->prepare("SELECT * FROM utilisateur WHERE id=?");
+				$statement->execute(array($_SESSION['utilisateur']['id']));
+				$result = $statement->fetchAll(PDO::FETCH_ASSOC);
+				foreach($result as $row) {
+					$old_email = $row['email'];
+				}
+
+		    	$statement = $pdo->prepare("SELECT * FROM utilisateur WHERE email=? and email!=?");
+		    	$statement->execute(array($_POST['email'],$old_email));
+		    	$total = $statement->rowCount();					
+		    	if($total) {
+		    		$valid = 0;
+		        	$error_message = "l'adresse mail existe déjà";
+		    	}
+		    }
+	    }
+        $path = $_FILES['photo']['name'];
+        $path_tmp = $_FILES['photo']['tmp_name'];
+    
+        if($path!='') {
+            $ext = pathinfo( $path, PATHINFO_EXTENSION );
+            $file_name = basename( $path, '.' . $ext );
+            if( $ext!='jpg' && $ext!='png' && $ext!='jpeg') {
+                $valid = 0;
+                $error_message = 'Vous devez avoir à télécharger un fichier jpg, jpeg ou png';
+            }
+        }
+    
+        if($valid == 1 && $path != '') {
+
+            if($_SESSION['utilisateur']['photo']!='' && $_SESSION['utilisateur']['photo']!= 'avatar0.jpg') {
+                unlink('../assets/uploads/avatars/'.$_SESSION['utilisateur']['photo']);	
+            }
+
+            $final_name = 'user-'. random_int(10,999) . '-@-' . time() . '.'.$ext;
+            move_uploaded_file( $path_tmp, '../assets/uploads/avatars/'.$final_name);
+            $_SESSION['utilisateur']['photo'] = $final_name;
+
+            $statement = $pdo->prepare("UPDATE utilisateur SET photo=? WHERE id=?");
+            $statement->execute(array($final_name,$_SESSION['utilisateur']['id'])); 
+        }
+	    if($valid == 1) {
+			
+			$_SESSION['utilisateur']['nom_complet'] = $_POST['fullname'];
+	    	$_SESSION['utilisateur']['email'] = $_POST['email'];
+            $_SESSION['utilisateur']['tele'] = $_POST['tele'];
+
+			$statement = $pdo->prepare("UPDATE utilisateur SET nom_complet=?, email=?, tele=? WHERE id=?");
+			$statement->execute(array($_POST['fullname'],$_POST['email'],$_POST['tele'],$_SESSION['utilisateur']['id']));
+
+	    	$success_message = 'Les informations utilisateur sont mises à jour avec succès.';
+	    }
+	}
 
 }
 ?>
@@ -36,30 +84,43 @@ if(isset($_POST['form1'])) {
 if(isset($_POST['form2'])) {
 	$valid = 1;
 
-	if(empty($_POST['menu_page_and_slug'])) {
+	if(empty($_POST['new_password']) || empty($_POST['conferm_password'])) {
         $valid = 0;
-        $error_message = "Vous devez avoir à sélectionner une page comme nom de menu";
-    }
-    if(empty($_POST['menu_order'])) {
-        $valid = 0;
-        $error_message = "L'ordre des menus ne peut pas être vide";
-    }
-    if($_POST['menu_avant'] == '') {
-        $valid = 0;
-        $error_message = "Vous devez avoir à sélectionner un parent pour ce menu";
+        $error_message = "Le mot de passe ne peut pas être vide.";
     }
 
-	if($valid == 1) {
-    	$menu_nps = explode('@1@',$_POST['menu_page_and_slug']);
-		$statement = $pdo->prepare("INSERT INTO menu (menu_type,menu_name,category_or_page_slug,menu_order,menu_parent,menu_url) VALUES (?,?,?,?,?,?)");
-		$statement->execute(array('Page',$menu_nps[0],$menu_nps[1],$_POST['menu_order'],$_POST['menu_avant'],''));
+    if( !empty($_POST['new_password']) && !empty($_POST['conferm_password']) ) {
+    	if($_POST['new_password'] != $_POST['conferm_password']) {
+	    	$valid = 0;
+	        $error_message = "Les mots de passe ne correspondent pas.";	
+    	}        
+    }
 
-    	$success_message = 'Le menu a été ajouté avec succès.';
+    if($valid == 1) {
+
+    	$_SESSION['utilisateur']['password'] = md5($_POST['new_password']);
+
+		$statement = $pdo->prepare("UPDATE utilisateur SET password=? WHERE id=?");
+		$statement->execute(array(md5($_POST['new_password']),$_SESSION['utilisateur']['id']));
+
+    	$success_message = 'Le mot de passe utilisateur est mis à jour avec succès.';
     }
 
 }
 ?>
-
+<?php
+$statement = $pdo->prepare("SELECT * FROM utilisateur WHERE id=?");
+$statement->execute(array($_SESSION['utilisateur']['id']));
+$statement->rowCount();
+$result = $statement->fetchAll(PDO::FETCH_ASSOC);							
+foreach ($result as $row) {
+	$full_name = $row['nom_complet'];
+	$email     = $row['email'];
+	$phone     = $row['tele'];
+	$photo     = $row['photo'];
+	$role      = $row['role'];
+}
+?>
 <h1 class="h3 mb-2 text-gray-800">Renseignements personnels</h1>
 <?php
 
@@ -83,45 +144,54 @@ if(isset($_POST['form2'])) {
 </nav>
 <div class="tab-content" id="nav-tabContent">
   <div class="tab-pane fade show active mt-4" id="nav-info" role="tabpanel" aria-labelledby="nav-info-tab">
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         <div class="row">
-            <div class="col-md-5">
-                <div class="form-group">
-                    <label for="menu-category">Choisir une catégorie <span class="text-danger">*</span></label>
-                    <select class="form-control select2" name="menu_category_and_slug" id="menu-category" required>
-                        <option value="" hidden>Choisir une catégorie</option>
-                        <?php
-                            $statement = $pdo->prepare("SELECT * FROM categories ORDER BY category_name ASC");
-                            $statement->execute();
-                            $result = $statement->fetchAll(PDO::FETCH_ASSOC);		
-                            foreach ($result as $row) {
-                                echo '<option value="'.$row['category_name'].'@1@'.$row['category_slug'].'">'.$row['category_name'].'</option>';
-                            }
-                        ?>
-                    </select>
+            <div class="col-md-3">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <div class="avatar text-center ml-4">
+                            <div class="avatar-inner parent-img mx-auto">
+                                <?php if($photo == ''): ?>
+                                    <img src="../assets/uploads/avatars/avatar0.jpg" alt="defualt avatar">
+                                <?php else : ?>
+                                    <img src="../assets/uploads/avatars/<?php echo $photo ?>" alt="<?php "Photo " . $full_name?>">
+                                <?php endif ?>
+                                <input type="file" name="photo" id="photo" class="avatar_custom">
+                            </div>
+                            <div>
+                                <small class="muted-deep fw-normal">Seuls les <strong>jpg</strong>, <strong>jpeg</strong> et <strong>png</strong> sont autorisés.</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-5">
-                <div class="form-group">
-                    <label for="avant-menu-category">Avant le menu <span class="text-danger">*</span></label>
-                    <select class="form-control select2" name="menu_avant" id="avant-menu-category" required>
-                        <option value="" hidden>Sélectionnez un parent pour ce menu</option>
-                        <option value="0">Aucun parent</option>
-                        <?php
-                            $statement = $pdo->prepare("SELECT * FROM menu ORDER BY menu_order ASC");
-                            $statement->execute();
-                            $result = $statement->fetchAll(PDO::FETCH_ASSOC);		
-                            foreach ($result as $row) {
-                                echo '<option value="'.$row['id'].'">'.$row['menu_name'].'</option>';
-                            }
-                        ?>
-                    </select>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="form-group">
-                    <label for="order-1">Ordre <span class="text-danger">*</span></label>
-                    <input type="number" step="0" class="form-control text-lowercase" required id="order-1" name="menu_order" placeholder="Ordre">
+
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">Nom et Prénom <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control text-capitalize" value="<?php echo $full_name; ?>" required id="name" name="fullname" placeholder="Nom et Prénom">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="email">Adresse e-mail <span class="text-danger">*</span></label>
+                            <input type="email" class="form-control" required id="email" value="<?php echo $email; ?>" name="email" placeholder="Adresse e-mail">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="role">Rôle <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control text-capitalize" readonly id="role" value="<?php echo $role; ?>" name="role" placeholder="Le Rôle">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="tele">Téléphone <span class="text-danger">*</span></label>
+                            <input type="tel" class="form-control" required id="tele" value="<?php echo $phone; ?>" name="tele" placeholder="Téléphone">
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-md-12">
@@ -129,9 +199,9 @@ if(isset($_POST['form2'])) {
                     <div class="col-md-6 offset-md-6 d-flex flex-row justify-content-end">
                         <button type="submit" name="form1"  class="btn btn-info btn-icon-split">
                             <span class="icon text-white-50">
-                                <i class="fas fa-plus"></i>
+                                <i class="fas fa-edit"></i>
                             </span>
-                            <span class="text">Ajouter la liste</span>
+                            <span class="text">Editer le profil</span>
                         </button>
                     </div>
                 </div>
@@ -145,13 +215,13 @@ if(isset($_POST['form2'])) {
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="new-password">Mot de passe <span class="text-danger">*</span></label>
-                    <input type="password" class="form-control" name="new_password" placeholder="Mot de passe" id="new-password" autocomplete="new-password">
+                    <input type="password" required class="form-control" name="new_password" placeholder="Mot de passe" id="new-password" autocomplete="new-password">
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="conferm-passwrod">Retaper le mot de passe <span class="text-danger">*</span></label>
-                    <input type="password" class="form-control" name="conferm_password" placeholder="Retaper le mot de passe" id="conferm-password" autocomplete="new-password">
+                    <input type="password" required class="form-control" name="conferm_password" placeholder="Retaper le mot de passe" id="conferm-password" autocomplete="new-password">
                 </div>
             </div>
             <div class="col-md-12">
@@ -159,7 +229,7 @@ if(isset($_POST['form2'])) {
                     <div class="col-md-6 offset-md-6 d-flex flex-row justify-content-end">
                         <button type="submit" name="form2"  class="btn btn-info btn-icon-split">
                             <span class="icon text-white-50">
-                                <i class="fas fa-plus"></i>
+                                <i class="fas fa-edit"></i>
                             </span>
                             <span class="text">Mettre à jour le mot de passe</span>
                         </button>

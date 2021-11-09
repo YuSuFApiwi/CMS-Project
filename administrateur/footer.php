@@ -78,8 +78,6 @@
         $("#photo").change(function() {
             var input = this;
             var $this = $(this);
-            console.log('photo upload');
-            console.log(input);
             var $parent = $('.parent-img');
             if (input.files && input.files[0]) {
                 var reader = new FileReader();

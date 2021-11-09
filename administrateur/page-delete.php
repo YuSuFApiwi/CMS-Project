@@ -20,7 +20,7 @@ foreach ($result as $row) {
 	$banner = $row['banner'];
 }
 
-if($banner != '') {
+if($banner != '' && $banner != 'defualt-banner.jpg') {
 	unlink('../assets/uploads/banners/'.$banner);
 }
 //Delete from page

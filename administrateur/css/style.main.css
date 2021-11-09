@@ -1,3 +1,31 @@
 .note-popover.popover{
     display: none;
 }
+
+.avatar  .avatar-inner {
+    padding: 3px;
+    width: 10rem;
+    height: 23vh;
+    border: 3px dashed #e5e9f2;
+    border-radius: 20px;
+    position: relative;
+}
+
+.avatar .avatar-inner img {
+    border-radius: 20px;
+    -o-object-fit: cover;
+        object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.avatar .avatar-inner [type=file] {
+    cursor: pointer;
+    z-index: 999;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

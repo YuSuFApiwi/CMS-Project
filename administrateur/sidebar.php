@@ -75,6 +75,28 @@
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 
+    <!-- setting & social  -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="parametre.php">
+          <i class="fas fa-fw fa-wrench"></i>
+         <span>Parametre</span>
+        </a>
+   </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsesocial"
+            aria-expanded="true" aria-controls="collapsesocial">
+            <i class="fas fa-hashtag"></i>         
+            <span>réseaux sociaux</span>
+        </a>
+        <div id="collapsesocial" class="collapse" aria-labelledby="headingUtilities"
+            data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="social.php">Afficher Mes resaux sociaux</a>
+                <a class="collapse-item" href="social-add.php">Nouveau</a>
+            </div>
+        </div>
+    </li>
+
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>

@@ -23,7 +23,7 @@ if(isset($_POST['form1'])) {
     	$menu_cns = explode('@1@',$_POST['menu_category_and_slug']);
 
 		$statement = $pdo->prepare("INSERT INTO menu (menu_type,menu_name,category_or_page_slug,menu_order,menu_parent,menu_url) VALUES (?,?,?,?,?,?)");
-		$statement->execute(array('Catégorie',$menu_cns[0],$menu_cns[1],$_POST['menu_order'],$_POST['menu_avant'],''));
+		$statement->execute(array('Category',$menu_cns[0],$menu_cns[1],$_POST['menu_order'],$_POST['menu_avant'],''));
 
     	$success_message = 'Le menu a été ajouté avec succès.';
     }
@@ -235,13 +235,13 @@ if(isset($_POST['form3'])) {
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="menu-name">Nom du menu <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="menu_name" id="menu-name" required>
+                    <input type="text" class="form-control" placeholder="Nom du menu" name="menu_name" id="menu-name" required>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="menu-url">URL du menu <span class="text-danger">*</span></label>
-                    <input type="url" class="form-control" name="menu_url" id="menu-url" required>
+                    <input type="url" class="form-control" placeholder="URL du menu" name="menu_url" id="menu-url" required>
                 </div>
             </div>
             <div class="col-md-6">

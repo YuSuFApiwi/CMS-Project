@@ -30,7 +30,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsepage"
             aria-expanded="true" aria-controls="collapsepage">
-            <i class="fas fa-fw fa-cog"></i>
+            <i class="fas fa-fw fa-photo-video"></i>
             <span>Pages</span>
         </a>
         <div id="collapsepage" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -45,7 +45,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsemenu"
             aria-expanded="true" aria-controls="collapsemenu">
-            <i class="fas fa-fw fa-wrench"></i>
+            <i class="fas fa-fw fa-bars"></i>
             <span>Menu</span>
         </a>
         <div id="collapsemenu" class="collapse" aria-labelledby="headingUtilities"
@@ -60,7 +60,7 @@
     <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsenews"
                 aria-expanded="true" aria-controls="collapsenews">
-                <i class="fas fa-fw fa-wrench"></i>
+                <i class="fas fa-fw fa-paste"></i>
                 <span>Nouvelles</span>
             </a>
             <div id="collapsenews" class="collapse" aria-labelledby="headingUtilities"
@@ -71,31 +71,38 @@
                     <a class="collapse-item" href="news-add.php">Créer un article</a>
                 </div>
             </div>
-        </li>
+    </li>
+    <!-- Nav Item - Utilities Collapse Menu -->
+    <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseservice"
+                aria-expanded="true" aria-controls="collapseservice">
+                <i class="fas fa-fw fa-pause"></i>
+                <span>Services</span>
+            </a>
+            <div id="collapseservice" class="collapse" aria-labelledby="headingUtilities"
+                data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="service.php">Afficher des services</a>
+                    <a class="collapse-item" href="service-add.php">Créer un service</a>
+                </div>
+            </div>
+    </li>
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 
     <!-- setting & social  -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="parametre.php">
-          <i class="fas fa-fw fa-wrench"></i>
-         <span>Parametre</span>
-        </a>
-   </li>
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsesocial"
-            aria-expanded="true" aria-controls="collapsesocial">
+        <a class="nav-link collapsed" href="social.php">
             <i class="fas fa-hashtag"></i>         
             <span>réseaux sociaux</span>
         </a>
-        <div id="collapsesocial" class="collapse" aria-labelledby="headingUtilities"
-            data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="social.php">Afficher Mes resaux sociaux</a>
-                <a class="collapse-item" href="social-add.php">Nouveau</a>
-            </div>
-        </div>
     </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="parametre.php">
+          <i class="fas fa-fw fa-cog"></i>
+         <span>Parametre</span>
+        </a>
+   </li>
 
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">

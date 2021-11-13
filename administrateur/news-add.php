@@ -109,7 +109,7 @@
 
 <div class="card shadow mb-4">
     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-        <h6 class="m-0 font-weight-bold text-primary">Article information</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Informations sur l'article</h6>
         <div>
             <a href="news.php" class="btn btn-info">
                 <span class="text">Afficher des articles</span>
@@ -210,7 +210,7 @@
 
                 <div class="col-md-12">
                     <div class="row">
-                        <div class="col-md-6 offset-md-6 d-flex justify-content-around">
+                        <div class="col-md-6 offset-md-6 d-flex flex-row justify-content-end">
                             <button type="submit" name="formN"  class="btn btn-info btn-icon-split">
                                 <span class="icon text-white-50">
                                     <i class="fas fa-plus"></i>

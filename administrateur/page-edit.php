@@ -168,7 +168,11 @@ if(!isset($_REQUEST['id'])) {
                     <div class="row">
                         <div class="col-md-12">
                             <div style="height: 53vh;" class="parent-img">
-                                <img class="h-100 img-thumbnail w-100" id="img-banner" src="<?php echo BASE_URL; ?>assets/uploads/banners/<?php echo $banner; ?>" alt="image baniere">
+                                <?php if($banner == ''): ?>
+                                    <img class="h-100 img-thumbnail w-100" id="img-banner" src="<?php echo BASE_URL; ?>assets/uploads/banners/defualt-banner.jpg" alt="image baniere">
+                                <?php else : ?>
+                                    <img class="h-100 img-thumbnail w-100" id="img-banner" src="<?php echo BASE_URL; ?>assets/uploads/banners/<?php echo $banner; ?>" alt="image baniere">
+                                <?php endif ?>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -215,10 +219,10 @@ if(!isset($_REQUEST['id'])) {
 
                 <div class="col-md-12">
                     <div class="row">
-                        <div class="col-md-6 offset-md-6 d-flex justify-content-around">
+                        <div class="col-md-6 offset-md-6 d-flex flex-row justify-content-end">
                             <button type="submit" name="formP"  class="btn btn-info btn-icon-split">
                                 <span class="icon text-white-50">
-                                    <i class="fas fa-plus"></i>
+                                    <i class="fas fa-edit"></i>
                                 </span>
                                 <span class="text">Mettre à jour la page</span>
                             </button>

@@ -153,7 +153,7 @@ foreach ($result as $row) {
                             <div class="avatar-inner parent-img mx-auto">
                                 <?php if($photo == ''): ?>
                                     <img src="../assets/uploads/avatars/avatar0.jpg" alt="defualt avatar">
-                                <?php else : ?>
+                                <?php else: ?>
                                     <img src="../assets/uploads/avatars/<?php echo $photo ?>" alt="<?php "Photo " . $full_name?>">
                                 <?php endif ?>
                                 <input type="file" name="photo" id="photo" class="avatar_custom">

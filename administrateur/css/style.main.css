@@ -2,7 +2,9 @@
     display: none;
 }
 
-.avatar  .avatar-inner {
+.avatar  .avatar-inner,
+.logo-setting .logo-setting-inner,
+.favicon-setting .favicon-setting-inner {
     padding: 3px;
     width: 10rem;
     height: 23vh;
@@ -11,7 +13,9 @@
     position: relative;
 }
 
-.avatar .avatar-inner img {
+.avatar .avatar-inner img,
+.logo-setting .logo-setting-inner img,
+.favicon-setting .favicon-setting-inner img {
     border-radius: 20px;
     -o-object-fit: cover;
         object-fit: cover;
@@ -19,7 +23,9 @@
     width: 100%;
 }
 
-.avatar .avatar-inner [type=file] {
+.avatar .avatar-inner [type=file],
+.logo-setting .logo-setting-inner [type=file],
+.favicon-setting .favicon-setting-inner [type=file]{
     cursor: pointer;
     z-index: 999;
     opacity: 0;
@@ -29,3 +35,6 @@
     width: 100%;
     height: 100%;
 }
+.logo-setting .logo-setting-inner {width: 25rem;height: 30vh;}
+.logo-setting .logo-setting-inner img,
+.favicon-setting .favicon-setting-inner img {width: auto;}

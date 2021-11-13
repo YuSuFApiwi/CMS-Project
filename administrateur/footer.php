@@ -75,10 +75,22 @@
 	        $(this).find('.btn-confirm').attr('href', $(e.relatedTarget).data('href'));
 	    });
 
-        $("#photo").change(function() {
+        $("#photo,#favicon").change(function() {
             var input = this;
             var $this = $(this);
             var $parent = $('.parent-img');
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $parent.find('img').attr("src", "" + e.target.result + "");
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        });
+        $("#banner").change(function() {
+            var input = this;
+            var $this = $(this);
+            var $parent = $('.parent-banner');
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
                 reader.onload = function(e) {

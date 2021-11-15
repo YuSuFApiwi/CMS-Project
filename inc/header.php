@@ -223,24 +223,23 @@ foreach ($result as $row)
                         {                                  
                             if($row['menu_parent']==0)
                             {
-                                echo '<li class="">';
                                 if($row['menu_type']=='Category')
                                 {
-                                    echo '
+                                    echo '<li class="">
                                     <a href="'.BASE_URL.'category/'.$row['category_or_page_slug'].'" class="menu-links">';
                                     echo $row['menu_name'];
                                     echo '</a>';
                                 }
                                 if($row['menu_type']=='Page')
                                 {
-                                    echo '
+                                    echo '<li class="">
                                     <a href="'.BASE_URL.'page/'.$row['category_or_page_slug'].'" class="menu-links">';
                                     echo $row['menu_name'];
                                     echo '</a>';
                                 }
                                 if($row['menu_type']=='Autre')
                                 {
-                                    echo '<a href="'.$row['menu_url'].'" class="menu-links">';
+                                    echo '<li class=""><a href="'.$row['menu_url'].'" class="menu-links">';
                                     echo $row['menu_name'];
                                     echo '</a>';
                                 }

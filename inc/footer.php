@@ -1,17 +1,16 @@
 <?php
-    $statement = $pdo->prepare("SELECT * FROM settings WHERE id=1");
-    $statement->execute();
-    $result = $statement->fetchAll(PDO::FETCH_ASSOC);							
-    foreach ($result as $row) 
-    {
-       //$logo = $row['logo'];
-        $footer_about     = $row['footer_about'];
-        $footer_copyright = $row['footer_copyright'];
-        $contact_address  = $row['contact_address'];
-        $contact_email    = $row['contact_email'];
-        $contact_phone    = $row['contact_phone'];
-        $contact_fax      = $row['contact_fax'];
-    }
+$statement = $pdo->prepare("SELECT * FROM settings WHERE id=1");
+$statement->execute();
+$result = $statement->fetchAll(PDO::FETCH_ASSOC);
+foreach ($result as $row) {
+    //$logo = $row['logo'];
+    $footer_about     = $row['footer_about'];
+    $footer_copyright = $row['footer_copyright'];
+    $contact_address  = $row['contact_address'];
+    $contact_email    = $row['contact_email'];
+    $contact_phone    = $row['contact_phone'];
+    $contact_fax      = $row['contact_fax'];
+}
 ?>
 <!--Start Footer-->
 <footer>
@@ -48,12 +47,12 @@
                     <ul class="footer-address-list ftr-details">
                         <li>
                             <span><i class="fas fa-envelope"></i></span>
-                            <p>Email <span> <a href="emilto:<?php echo $contact_email;?>"><span class="__cf_email__"><?php echo $contact_email;?></span></a></span></p>
+                            <p>Email <span> <a href="emilto:<?php echo $contact_email; ?>"><span class="__cf_email__"><?php echo $contact_email; ?></span></a></span></p>
                         </li>
                         <li>
                             <span><i class="fas fa-phone-alt"></i></span>
-                            <p>Téléphone 
-                                <span> 
+                            <p>Téléphone
+                                <span>
                                     <a href="tel:<?php echo $contact_phone ?>" class="ml-1"><?php echo $contact_phone ?></a> / <a href="tel:<?php echo $contact_fax ?>" class="mr-1"><?php echo $contact_fax ?></a>
                                 </span>
                             </p>
@@ -68,47 +67,47 @@
                     <h5>Informations</h5>
                     <ul class="footer-address-list link-hover">
                         <?php
-                            $i=0;
-                            $statement = $pdo->prepare("SELECT * FROM page where status = 'active' limit 4");
-                            $statement->execute();
-                            $result = $statement->fetchAll(PDO::FETCH_ASSOC);							
-                            foreach ($result as $row) {
-                                $i++;
-                                ?>
-                                <li>
-                                    <a href="<?php echo BASE_URL?>page/<?php echo $row['page_slug'];?>"><?php echo $row['page_name'];?></a>
-                                </li>
-                                <?php
-                            }
-						?>
+                        $i = 0;
+                        $statement = $pdo->prepare("SELECT * FROM page where status = 'active' limit 4");
+                        $statement->execute();
+                        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+                        foreach ($result as $row) {
+                            $i++;
+                        ?>
+                            <li>
+                                <a href="<?php echo BASE_URL ?>page/<?php echo $row['page_slug']; ?>"><?php echo $row['page_name']; ?></a>
+                            </li>
+                        <?php
+                        }
+                        ?>
                     </ul>
                 </div>
                 <div class="col-lg-4 col-sm-6 footer-blog-">
                     <h5>Derniers articles</h5>
                     <?php
-						$i=0;
-						$statement = $pdo->prepare("SELECT * FROM news ORDER BY id DESC limit 4");
-						$statement->execute();
-						$result = $statement->fetchAll(PDO::FETCH_ASSOC);							
-						foreach ($result as $row) {
-							$i++;
-							?>
-							<div class="single-blog-">
-                                <div class="post-thumb">
-                                    <a href="<?php echo BASE_URL; ?>news/<?php echo $row['news_slug']; ?>">
-                                        <img src="<?php echo BASE_URL; ?>assets/uploads/news/<?php echo $row['photo']?>" alt="blog">
-                                    </a>
-                                </div>
-                                <div class="content">
-                                    <p class="post-meta"><span class="post-date"><i class="far fa-clock"></i><?php echo $row['news_date'] ?></span></p>
-                                    <h4 class="title">
-                                        <a href="<?php echo BASE_URL; ?>news/<?php echo $row['news_slug']; ?>"><?php echo $row['news_title']; ?></a>
-                                    </h4>
-                                </div>
+                    $i = 0;
+                    $statement = $pdo->prepare("SELECT * FROM news ORDER BY id DESC limit 4");
+                    $statement->execute();
+                    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($result as $row) {
+                        $i++;
+                    ?>
+                        <div class="single-blog-">
+                            <div class="post-thumb">
+                                <a href="<?php echo BASE_URL; ?>news/<?php echo $row['news_slug']; ?>">
+                                    <img src="<?php echo BASE_URL; ?>assets/uploads/news/<?php echo $row['photo'] ?>" alt="blog">
+                                </a>
                             </div>
-							<?php
-						}
-					?>
+                            <div class="content">
+                                <p class="post-meta"><span class="post-date"><i class="far fa-clock"></i><?php echo $row['news_date'] ?></span></p>
+                                <h4 class="title">
+                                    <a href="<?php echo BASE_URL; ?>news/<?php echo $row['news_slug']; ?>"><?php echo $row['news_title']; ?></a>
+                                </h4>
+                            </div>
+                        </div>
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -117,9 +116,23 @@
         <div class="copyright">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="footer-social-media-icons col-md-12">
+                        <?php
+                            $statement = $pdo->prepare("SELECT * FROM social");
+                            $statement->execute();
+                            $result = $statement->fetchAll(PDO::FETCH_ASSOC);							
+                            foreach ($result as $row) 
+                            {
+                                if($row['social_url']!='' && $row['social_url'] != '#')
+                                {
+                                    echo '<a target="_blank" href="'.$row['social_url'].'"><i class="'.$row['social_icon'].'"></i></a>';
+                                }
+                            }
+						?>
+                    </div>
+                    <div class="col-md-12">
                         <div class="footer-">
-                            <p><?php echo $footer_copyright ?> <a href="<?php echo BASE_URL;?>" target="blank">Hand'Comm</a></p>
+                            <p><?php echo $footer_copyright ?> <a href="<?php echo BASE_URL; ?>" target="blank">Hand'Comm</a></p>
                         </div>
                     </div>
                 </div>
@@ -140,4 +153,5 @@
 <!--common script file-->
 <script src="<?php echo BASE_URL ?>assets/js/main.js"></script>
 </body>
+
 </html>

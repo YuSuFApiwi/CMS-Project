@@ -101,7 +101,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="layout-page">Choisissez un type de mise en page <span class="text-danger">*</span></label>
-                        <select class="form-control" name="page_layout" id="layout-page" required>
+                        <select class="form-control" name="page_layout" id="layout-page" required onchange="showContent(this)">
                             <option value="full width">Mise en page pleine largeur</option>
                             <option value="gallery">Gallery</option>
                             <option value="blog">Blog</option>
@@ -116,7 +116,7 @@
                         <span class="text-muted text-sm-left">generate slug automatic.</span>
                     </div>
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-12" id="show-content">
                     <div class="form-group">
                         <label for="content_page">Contenu de la page <span class="text-danger">*</span></label>
                         <textarea rows="15" minlength="200" class="form-control" name="content" required style="min-height: 150px;" id="content_page"></textarea>

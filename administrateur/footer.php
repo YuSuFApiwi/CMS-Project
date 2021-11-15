@@ -74,6 +74,13 @@
         $('#confirm-delete').on('show.bs.modal', function(e) {
 	        $(this).find('.btn-confirm').attr('href', $(e.relatedTarget).data('href'));
 	    });
+        function showContent(el){
+            if(el.value == 'full width') {
+                document.getElementById('show-content').style.display = "block";
+            } else {
+                document.getElementById('show-content').style.display = "none";
+            }
+        }
 
         $("#photo,#favicon").change(function() {
             var input = this;

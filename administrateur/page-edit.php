@@ -102,7 +102,7 @@ if(!isset($_REQUEST['id'])) {
 }
 ?>
 
-<h1 class="h3 mb-2 text-gray-800">Modifier les informations sur les pages</h1>
+<h1 class="h3 mb-2 text-gray-800">Modifier les informations de la page</h1>
 
 <?php
 
@@ -122,10 +122,10 @@ if(!isset($_REQUEST['id'])) {
 
 <div class="card shadow mb-4">
     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-        <h6 class="m-0 font-weight-bold text-primary">Informations sur les pages</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Informations sur la page</h6>
         <div>
             <a href="page.php" class="btn btn-info">
-                <span class="text">Afficher Les Pages</span>
+                <span class="text">Afficher tous les Pages</span>
             </a>
         </div>
     </div>

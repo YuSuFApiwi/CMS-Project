@@ -2,11 +2,8 @@
 <ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-laugh-wink"></i>
-        </div>
-        <div class="sidebar-brand-text mx-3">Handcomm <sup>1.0v</sup></div>
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
+        <div class="sidebar-brand-text mx-3">Handcomm</div>
     </a>
 
     <!-- Divider -->
@@ -35,7 +32,7 @@
         </a>
         <div id="collapsepage" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white collapse-inner rounded">
-                <a class="collapse-item" href="page.php">Afficher les pages</a>
+                <a class="collapse-item" href="page.php">Afficher tous les pages</a>
                 <a class="collapse-item" href="page-add.php">nouvelle page</a>
             </div>
         </div>
@@ -51,7 +48,7 @@
         <div id="collapsemenu" class="collapse" aria-labelledby="headingUtilities"
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="menu.php">Afficher les menus</a>
+                <a class="collapse-item" href="menu.php">Afficher tous les menus</a>
                 <a class="collapse-item" href="menu-add.php">Créer un menu</a>
             </div>
         </div>
@@ -61,7 +58,7 @@
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsenews"
                 aria-expanded="true" aria-controls="collapsenews">
                 <i class="fas fa-fw fa-paste"></i>
-                <span>Nouvelles</span>
+                <span>Blog</span>
             </a>
             <div id="collapsenews" class="collapse" aria-labelledby="headingUtilities"
                 data-parent="#accordionSidebar">
@@ -94,13 +91,13 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="social.php">
             <i class="fas fa-hashtag"></i>         
-            <span>réseaux sociaux</span>
+            <span>Réseaux sociaux</span>
         </a>
     </li>
     <li class="nav-item">
         <a class="nav-link collapsed" href="parametre.php">
           <i class="fas fa-fw fa-cog"></i>
-         <span>Parametre</span>
+         <span>Paramétres</span>
         </a>
    </li>
 

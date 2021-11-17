@@ -159,7 +159,7 @@ foreach ($result as $row) {
         <h6 class="m-0 font-weight-bold text-primary">Des informations de service</h6>
         <div>
             <a href="service.php" class="btn btn-info">
-                <span class="text">Afficher des services</span>
+                <span class="text">Afficher tous les services</span>
             </a>
         </div>
     </div>

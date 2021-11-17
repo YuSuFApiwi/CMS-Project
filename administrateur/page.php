@@ -4,17 +4,16 @@
     require_once('header.php')
 ?>
 
-
 <h1 class="h3 mb-2 text-gray-800">Les Pages</h1>
 <div class="card shadow mb-4">
     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-        <h6 class="m-0 font-weight-bold text-primary">Afficher toutes les pages</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Afficher tous les pages</h6>
         <div>
             <a href="page-add.php" class="btn btn-info btn-icon-split">
                 <span class="icon text-white-50">
                     <i class="fas fa-plus"></i>
                 </span>
-                <span class="text">Ajouter une nouvelle page</span>
+                <span class="text">Ajouter un nouvelle page</span>
             </a>
         </div>
     </div>
@@ -92,7 +91,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                Voulez-vous supprimer cette page.
+                    Voulez-vous supprimer cette page?
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>

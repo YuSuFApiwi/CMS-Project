@@ -66,7 +66,7 @@
         <h6 class="m-0 font-weight-bold text-primary">Informations sur la catégorie</h6>
         <div>
             <a href="category.php" class="btn btn-info">
-                <span class="text">Afficher Les catégories</span>
+                <span class="text">Afficher les catégories</span>
             </a>
         </div>
     </div>

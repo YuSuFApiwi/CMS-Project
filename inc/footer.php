@@ -101,7 +101,7 @@ foreach ($result as $row) {
                             <div class="content">
                                 <p class="post-meta"><span class="post-date"><i class="far fa-clock"></i><?php echo $row['news_date'] ?></span></p>
                                 <h4 class="title">
-                                    <a href="<?php echo BASE_URL; ?>news/<?php echo $row['news_slug']; ?>"><?php echo $row['news_title']; ?></a>
+                                    <a href="<?php echo BASE_URL; ?>article/<?php echo $row['news_slug']; ?>"><?php echo $row['news_title']; ?></a>
                                 </h4>
                             </div>
                         </div>

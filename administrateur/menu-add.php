@@ -1,5 +1,5 @@
 <?php
-    $title = 'Ajouter une nouvelle menu';
+    $title = 'Ajouter un nouveau menu';
     require_once('header.php')
 ?>
 
@@ -92,7 +92,7 @@ if(isset($_POST['form3'])) {
 }
 ?>
 
-<h1 class="h3 mb-2 text-gray-800">Ajouter une nouvelle menu</h1>
+<h1 class="h3 mb-2 text-gray-800">Ajouter un nouveau menu</h1>
 <?php
 
     if (isset($error_message) && $error_message != '') {
@@ -136,7 +136,7 @@ if(isset($_POST['form3'])) {
             </div>
             <div class="col-md-5">
                 <div class="form-group">
-                    <label for="avant-menu-category">Avant le menu <span class="text-danger">*</span></label>
+                    <label for="avant-menu-category">Menu parent <span class="text-danger">*</span></label>
                     <select class="form-control select2" name="menu_avant" id="avant-menu-category" required>
                         <option value="" hidden>Sélectionnez un parent pour ce menu</option>
                         <option value="0">Aucun parent</option>

@@ -100,7 +100,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                Voulez-vous supprimer cette news.
+                Voulez-vous supprimer cet article?
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>

@@ -25,7 +25,7 @@
                     <tr>
                         <th>N°</th>
                         <th>Image</th>
-                        <th>Le nom</th>
+                        <th>Nom du service</th>
                         <th>Slug</th>
                         <th>Brève description</th>
                         <th>Action</th>
@@ -79,7 +79,7 @@
                     <tr>
                         <th>N°</th>
                         <th>Image</th>
-                        <th>Le nom</th>
+                        <th>Nom du service</th>
                         <th>Slug</th>
                         <th>Brève description</th>
                         <th>Action</th>
@@ -99,7 +99,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                Voulez-vous supprimer cette service.
+                    Voulez-vous supprimer cette service?
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>

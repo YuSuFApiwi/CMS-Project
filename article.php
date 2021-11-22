@@ -52,6 +52,12 @@ $statement->execute(array($updated_total_view, $_REQUEST['slug']));
             <div class="row">
                 <div class="col-lg-12 v-center">
                     <div class="bread-inner">
+                        <div class="bread-menu">
+                            <ul>
+                                <li><a href="<?php echo BASE_URL ?>">Accueil</a></li>
+                                <li><a href="<?php echo BASE_URL ?>page/blog">Blog</a></li>
+                            </ul>
+                        </div>
                         <div class="bread-title text-capitalize">
                             <h1><?php echo $news_title ?></h1>
                         </div>

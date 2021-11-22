@@ -71,8 +71,8 @@
 		}
 
 		if($path == '' && $path1 == '') {
-			$statement = $pdo->prepare("UPDATE service SET name=?, slug=?, description=?, short_description=? WHERE id=?");
-    		$statement->execute(array($_POST['name'],$slug,$_POST['content'],$_POST['short_description'],$_REQUEST['id']));
+			$statement = $pdo->prepare("UPDATE service SET name=?, slug=?, description=?,section_left=?,section_right=?, short_description=? WHERE id=?");
+    		$statement->execute(array($_POST['name'],$slug,$_POST['content'],$_POST['section_left'],$_POST['section_right'],$_POST['short_description'],$_REQUEST['id']));
 		}
 		if($path != '' && $path1 == '') {
 			unlink('../assets/uploads/services/'.$_POST['old_photo']);
@@ -80,8 +80,8 @@
 			$final_name = 'service-'.random_int(99,9999). '-@-' . time() .'.'.$ext;
         	move_uploaded_file( $path_tmp, '../assets/uploads/services/'.$final_name );
 
-        	$statement = $pdo->prepare("UPDATE service SET name=?, slug=?, description=?, short_description=?, photo=? WHERE id=?");
-    		$statement->execute(array($_POST['name'],$slug,$_POST['content'],$_POST['short_description'],$final_name,$_REQUEST['id']));
+        	$statement = $pdo->prepare("UPDATE service SET name=?, slug=?, description=?,section_left=?,section_right=?, short_description=?, photo=? WHERE id=?");
+    		$statement->execute(array($_POST['name'],$slug,$_POST['content'],$_POST['section_left'],$_POST['section_right'],$_POST['short_description'],$final_name,$_REQUEST['id']));
 		}
 		if($path == '' && $path1 != '') {
 			unlink('../assets/uploads/services/'.$_POST['old_banner']);
@@ -89,8 +89,8 @@
 			$final_name1 = 'service-banner-'.random_int(99,9999). '-@-' . time() .'.'.$ext1;
         	move_uploaded_file( $path_tmp1, '../assets/uploads/services/'.$final_name1 );
 
-        	$statement = $pdo->prepare("UPDATE service SET name=?, slug=?, description=?, short_description=?, banner=? WHERE id=?");
-    		$statement->execute(array($_POST['name'],$slug,$_POST['content'],$_POST['short_description'],$final_name1,$_REQUEST['id']));
+        	$statement = $pdo->prepare("UPDATE service SET name=?, slug=?, description=?,section_left=?,section_right=?, short_description=?, banner=? WHERE id=?");
+    		$statement->execute(array($_POST['name'],$slug,$_POST['content'],$_POST['section_left'],$_POST['section_right'],$_POST['short_description'],$final_name1,$_REQUEST['id']));
 		}
 		if($path != '' && $path1 != '') {
 
@@ -103,8 +103,8 @@
 			$final_name1 = 'service-banner-'.random_int(99,9999). '-@-' . time() .'.'.$ext1;
         	move_uploaded_file( $path_tmp1, '../assets/uploads/'.$final_name1 );
 
-        	$statement = $pdo->prepare("UPDATE service SET name=?, slug=?, description=?, short_description=?, photo=?, banner=? WHERE id=?");
-    		$statement->execute(array($_POST['name'],$slug,$_POST['description'],$_POST['short_description'],$final_name,$final_name1,$_REQUEST['id']));
+        	$statement = $pdo->prepare("UPDATE service SET name=?, slug=?, description=?,section_left=?,section_right=?,short_description=?, photo=?, banner=? WHERE id=?");
+    		$statement->execute(array($_POST['name'],$slug,$_POST['description'],$_POST['section_left'],$_POST['section_right'],$_POST['short_description'],$final_name,$final_name1,$_REQUEST['id']));
 		}
 
 		$success_message = 'Le service est mis à jour avec succès !';
@@ -148,6 +148,8 @@ foreach ($result as $row) {
 	$name              = $row['name'];
 	$slug              = $row['slug'];
 	$content           = $row['description'];
+	$section_left      = $row['section_left'];
+	$section_right     = $row['section_right'];
 	$short_description = $row['short_description'];
 	$photo             = $row['photo'];
 	$banner            = $row['banner'];
@@ -184,6 +186,18 @@ foreach ($result as $row) {
                     <div class="form-group">
                         <label for="content-news">Contenu de l'actualité <span class="text-danger">*</span></label>
                         <textarea rows="15" minlength="200" class="form-control" name="content" style="min-height: 150px;" required id="content-news"><?php echo $content;?></textarea>
+					</div>	
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Section de contenu à gauche <span class="text-muted">(Optional)</span></label>
+                        <textarea rows="15" minlength="200" class="form-control" name="section_left" style="min-height: 150px;" id="content-news"><?php echo $section_left ?></textarea>
+					</div>	
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Section de contenu à droite <span class="text-muted">(Optional)</span></label>
+                        <textarea rows="15" minlength="200" class="form-control" name="section_right" style="min-height: 150px;" id="content-news"><?php echo $section_right ?></textarea>
 					</div>	
                 </div>
                 <div class="col-md-12">

@@ -9,8 +9,8 @@
                     <div class="bread-inner">
                         <div class="bread-menu wow fadeInUp" data-wow-delay=".2s">
                             <ul>
-                                <li><a href="<?php BASE_URL ?>">Accueil</a></li>
-                                <li><a href="#">Contact</a></li>
+                                <li><a href="<?php echo BASE_URL ?>">Accueil</a></li>
+                                <li><a href="<?php echo BASE_URL ?>contact">Contact</a></li>
                             </ul>
                         </div>
                         <div class="bread-title wow fadeInUp" data-wow-delay=".5s">
@@ -23,6 +23,17 @@
     </div>
 </section>
 <!--End Breadcrumb Area-->
+<?php
+$statement = $pdo->prepare("SELECT * FROM settings WHERE id=1");
+$statement->execute();
+$result = $statement->fetchAll(PDO::FETCH_ASSOC);
+foreach ($result as $row) {
+    $contact_address  = $row['contact_address'];
+    $contact_email    = $row['contact_email'];
+    $contact_phone    = $row['contact_phone'];
+    $contact_fax      = $row['contact_fax'];
+}
+?>
 <!--Start Enquire Form-->
 <section class="contact-page pad-tb">
     <div class="container">
@@ -78,25 +89,43 @@
                             <span><i class="fas fa-phone-alt"></i> Téléphone:</span>
                             <div class="info-body">
                                 <p>Nos horaires: Lundi – Samedi</p>
-                                <a href="tel:+10000000000">01.76.43.04.02</a>
+                                <a href="tel:<?php echo $contact_phone;?>"><?php echo $contact_phone; ?></a>
+                                <span>&nbsp;/&nbsp;</span>
+                                <a href="tel:<?php echo $contact_fax; ?>"><?php echo $contact_fax;?></a>
                             </div>
                         </div>
                     </div>
-                    <div class="email-card mt30 wow fadeIn" data-wow-delay=".5s">
+                    <div class="email-card mt30 wow fadeIn" data-wow-delay=".4s">
                         <div class="info-card v-center">
                             <span><i class="fas fa-envelope"></i> Email:</span>
                             <div class="info-body">
                                 <p>Notre équipe d'assistance vous répondra dans les 24 heures pendant les heures ouvrables standard.</p>
-                                <a href="#">contact@handcomm.fr</a>
+                                <a href="mailto:<?php echo $contact_email; ?>"><?php echo $contact_email; ?></a>
                             </div>
                         </div>
                     </div>
-                    <div class="skype-card mt30 wow fadeIn" data-wow-delay=".9s">
+                    <div class="contact-card mt30 wow fadeIn" data-wow-delay=".6s">
                         <div class="info-card v-center">
-                            <span><i class="fab fa-facebook"></i> Facebook:</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Adresse:</span>
                             <div class="info-body">
-                                <p><a href="https://web.facebook.com/handcomm/">https://web.facebook.com/handcomm/</a></p>
+                                <p><?php echo $contact_address; ?></p>
                             </div>
+                        </div>
+                    </div>
+                    <div class="skype-card mt30 wow fadeIn" data-wow-delay=".8s">
+                        <div class="info-card v-center text-center">
+                            <?php
+                                $statement = $pdo->prepare("SELECT * FROM social");
+                                $statement->execute();
+                                $result = $statement->fetchAll(PDO::FETCH_ASSOC);					
+                                foreach ($result as $row) 
+                                {
+                                    if($row['social_url']!='' && $row['social_url'] != '#')
+                                    {
+                                        echo '<a target="_blank" href="'.$row['social_url'].'"><i class="'.$row['social_icon'].' fa-2x mr-3"></i></a>';
+                                    }
+                                }
+                            ?>
                         </div>
                     </div>
                 </div>

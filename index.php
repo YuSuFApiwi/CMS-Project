@@ -11,7 +11,7 @@ require_once('inc/header.php')
                         <h1 class="wow fadeInUp" data-wow-delay=".2s">Agenge Digitale HAND'COMM</h1>
                         <p class="wow fadeInUp" data-wow-delay=".4s">Une offre de compétences en télétravail ou sur site, des consultants expérimentés dans leur spécialité, des durées d’intervention modulables,
                             en fonction de vos besoins. Un seul site, un interlocuteur unique, pour augmenter vos résultats.</p>
-                        <a href="contact.php" class="btn-main bg-btn lnk wow fadeInUp" data-wow-delay=".6s">Demandez un devis gratuit<i class="fas fa-chevron-right fa-icon"></i><span class="circle"></span></a>
+                        <a href="<?php echo BASE_URL ?>contact" class="btn-main bg-btn lnk wow fadeInUp" data-wow-delay=".6s">Demandez un devis gratuit<i class="fas fa-chevron-right fa-icon"></i><span class="circle"></span></a>
                     </div>
                 </div>
                 <div class="col-lg-6 v-center">
@@ -25,7 +25,7 @@ require_once('inc/header.php')
 </section>
 <!--End Hero-->
 <!--Start Service-->
-<section class="service-section web-servic pad-tb">
+<section class="service-section web-servic pad-tb mb-4">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8">

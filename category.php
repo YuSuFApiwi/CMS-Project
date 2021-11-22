@@ -67,7 +67,7 @@ foreach ($result as $row) {
                                         <div class="error-block">
                                             <h3>Désolée ! Aucune actualité n'est trouvée.</h3>
                                             <p>Il n'y a pas d'articles liés à cette catégorie.</p>
-                                            <a href="<?php echo BASE_URL ?>" class="btn-outline">Aller à la page d'accueil</a>
+                                            <a href="<?php echo BASE_URL ?>" class="btn-main bg-btn lnk wow fadeInUp" data-wow-delay=".6s">Aller à la page d'accueil <i class="fas fa-chevron-right fa-icon"></i><span class="circle"></span></a>
                                         </div>
                                     </div>
                                 </div>

@@ -73,8 +73,8 @@
             $final_name1 = 'service-banner-'.random_int(99,9999). '-@-' . time() .'.'.$ext1;
             move_uploaded_file( $path_tmp1, '../assets/uploads/services/'.$final_name1 );
     
-            $statement = $pdo->prepare("INSERT INTO service (name,slug,description,short_description,photo,banner) VALUES (?,?,?,?,?,?)");
-            $statement->execute(array($_POST['name'],$slug,$_POST['content'],$_POST['short_description'],$final_name,$final_name1));
+            $statement = $pdo->prepare("INSERT INTO service (name,slug,description,section_left,section_right,short_description,photo,banner) VALUES (?,?,?,?,?,?,?,?)");
+            $statement->execute(array($_POST['name'],$slug,$_POST['content'],$_POST['section_left'],$_POST['section_right'],$_POST['short_description'],$final_name,$final_name1));
                 
             $success_message = 'Le service a été ajouté avec succès !';
     
@@ -135,10 +135,22 @@
                         <textarea rows="15" minlength="200" class="form-control" name="content" style="min-height: 150px;" required id="content-news"></textarea>
 					</div>	
                 </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Section de contenu à gauche <span class="text-muted">(Optional)</span></label>
+                        <textarea rows="15" minlength="200" class="form-control" name="section_left" style="min-height: 150px;" id="content-news"></textarea>
+					</div>	
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Section de contenu à droite <span class="text-muted">(Optional)</span></label>
+                        <textarea rows="15" minlength="200" class="form-control" name="section_right" style="min-height: 150px;" id="content-news"></textarea>
+					</div>	
+                </div>
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label for="content-news">Brève description <span class="text-danger">*</span></label>
-                        <textarea rows="5" minlength="20" class="form-control" name="short_description" required></textarea>
+                        <label for="short-description">Brève description <span class="text-danger">*</span></label>
+                        <textarea rows="5" minlength="20" class="form-control" id="short-description" name="short_description" required></textarea>
 					</div>	
                 </div>
                 <div class="col-md-12">

@@ -59,7 +59,7 @@
                             <?php echo (strlen($row['news_title']) > 40) ? substr($row['news_title'],0,40) . ' ...' : $row['news_title']; ?>
                         </td>
 	                    <td>
-                            <?php echo (strlen($row['news_content']) > 120) ? substr($row['news_content'],0,120) . ' ...' : $row['news_content']; ?>
+                            <?php  echo substr($row['news_content'],0,200); echo (strlen($row['news_content']) > 120) ?'...':'';?>
                         </td>
 	                    <td><?php echo $row['category_name']; ?></td>
 	                    <td>

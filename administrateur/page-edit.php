@@ -145,9 +145,9 @@ if(!isset($_REQUEST['id'])) {
                         <label for="layout-page">Choisissez un type de mise en page <span class="text-danger">*</span></label>
                         <select class="form-control" name="page_layout" id="layout-page" required>
                             <option value="full width" <?php if($page_layout=='Full Width') {echo 'selected';} ?>>Mise en page pleine largeur</option>
-                            <option value="gallery" <?php if($page_layout=='gallery') {echo 'selected';} ?>>Gallery</option>
                             <option value="blog" <?php if($page_layout=='blog') {echo 'selected';} ?>>Blog</option>
-                            <option value="faq" <?php if($page_layout=='faq') {echo 'selected';} ?>>Mise en page de la FAQ</option>
+                           <!--  <option value="gallery" <?php /* if($page_layout=='gallery') {echo 'selected';} */ ?>>Gallery</option>
+                            <option value="faq" <?php /* if($page_layout=='faq') {echo 'selected';} */ ?>>Mise en page de la FAQ</option> -->
                         </select>
                     </div>
                 </div>

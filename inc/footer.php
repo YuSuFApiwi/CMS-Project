@@ -40,7 +40,7 @@ foreach ($result as $row) {
                 <div class="col-lg-3 col-sm-6  ftr-brand-pp">
                     <a class="navbar-brand mt30 mb25" href="#"> <img src="<?php echo BASE_URL ?>assets/uploads/logo/<?php echo $logo ?>" alt="Logo" width="100" /></a>
                     <p><?php echo $footer_about ?></p>
-                    <a href="contact.php" class="btn-main bg-btn3 lnk mt20">Devenir partenaire <i class="fas fa-chevron-right fa-icon"></i><span class="circle"></span></a>
+                    <a href="<?php echo BASE_URL ?>contact" class="btn-main bg-btn3 lnk mt20">Devenir partenaire <i class="fas fa-chevron-right fa-icon"></i><span class="circle"></span></a>
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <h5>Contactez nous</h5>

@@ -195,7 +195,7 @@ foreach ($result as $row)
 						 
                          <li class="right-bddr"></li>
 						<li>
-                            <a href="contact.php" class="btn-br bg-btn3 btshad-b2 lnk">Devis en ligne <span class="circle"></span></a>
+                            <a href="<?php echo BASE_URL ?>contact" class="btn-br bg-btn3 btshad-b2 lnk">Devis en ligne <span class="circle"></span></a>
                         </li>
 					  </ul>
 				</div>

@@ -4,10 +4,10 @@ RewriteCond %{REQUEST_URI} !\.(?:css|js|jpg|gif|png)$ [NC]
 
 RewriteRule  ^category/(.*)$/?$     category.php?slug=$1   [NC,L]
 RewriteRule  ^page/(.*)$/?$         page.php?slug=$1       [NC,L]
-RewriteRule  ^article/(.*)$/?$         article.php?slug=$1       [NC,L]
+RewriteRule  ^article/(.*)$/?$      article.php?slug=$1    [NC,L]
 RewriteRule  ^service/(.*)$/?$      service.php?slug=$1    [NC,L]
-RewriteRule  ^attorney/(.*)$/?$     attorney.php?slug=$1     [NC,L]
-RewriteRule  ^search                search.php             [NC,L]
+RewriteRule  ^contact               contact.php            [NC,L]
+#RewriteRule  ^search                search.php             [NC,L]
 
 <IfModule mod_headers.c>
   <FilesMatch "\.(ttf|ttc|otf|eot|woff|font.css|css)$">

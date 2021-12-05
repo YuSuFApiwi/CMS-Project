@@ -171,7 +171,7 @@ foreach ($result as $row) {
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="name">Nom et Prénom <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control text-capitalize" value="<?php echo $full_name; ?>" required id="name" name="fullname" placeholder="Nom et Prénom">
+                            <input type="text" class="form-control" value="<?php echo $full_name; ?>" required id="name" name="fullname" placeholder="Nom et Prénom">
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -183,7 +183,7 @@ foreach ($result as $row) {
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="role">Rôle <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control text-capitalize" readonly id="role" value="<?php echo $role; ?>" name="role" placeholder="Le Rôle">
+                            <input type="text" class="form-control" readonly id="role" value="<?php echo $role; ?>" name="role" placeholder="Le Rôle">
                         </div>
                     </div>
                     <div class="col-md-6">

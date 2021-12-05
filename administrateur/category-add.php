@@ -77,14 +77,14 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="name-category">Nom de catégorie <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control text-capitalize" required id="name-category" name="category_name" placeholder="Entrez le nom de catégorie">
+                        <input type="text" class="form-control" required id="name-category" name="category_name" placeholder="Entrez le nom de catégorie">
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label for="slug-category">Slug <span class="text-muted">(Optional)</span></label>
-                        <input type="text" class="form-control text-lowercase" id="slug-category" name="slug" placeholder="Example: nom-de-catégorie">
-                        <span class="text-muted text-sm-left">generate slug automatic.</span>
+                        <label for="slug-category">Lien personnalisé <span class="text-muted">(Optionnel)</span></label>
+                        <input type="text" class="form-control text-lowercase" id="slug-category" name="slug" placeholder="Exemple: nom-de-catégorie">
+                        <span class="text-muted text-sm-left">laisse vide pour génerer automatiquement</span>
                     </div>
                 </div>
 
@@ -94,19 +94,19 @@
 
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label for="title">Meta title <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" required id="title" name="meta_title" placeholder="Meta Title">
+                        <label for="title">Meta titre <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" required id="title" name="meta_title" placeholder="Meta titre">
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label for="key">Meta Keyword <span class="text-muted">(Optional)</span></label>
-                        <textarea rows="4" class="form-control" id="key" name="meta_keyword" style="min-height: 50px;" placeholder="Example: handcomm,blog,website,..."></textarea>
+                        <label for="key">Badger mot clé <span class="text-muted">(Optionnel)</span></label>
+                        <textarea rows="4" class="form-control" id="key" name="meta_keyword" style="min-height: 50px;" placeholder="Exemple: handcomm,blog,website,..."></textarea>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label for="description">Meta Description <span class="text-muted">(Optional)</span></label>
+                        <label for="description">Meta Description <span class="text-muted">(Optionnel)</span></label>
                         <textarea rows="8" class="form-control" id="description" placeholder="Meta Description..." name="meta_description" style="min-height: 150px;"></textarea>
                     </div>
                 </div>

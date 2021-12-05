@@ -32,8 +32,8 @@
         </a>
         <div id="collapsepage" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white collapse-inner rounded">
-                <a class="collapse-item" href="page.php">Afficher tous les pages</a>
-                <a class="collapse-item" href="page-add.php">nouvelle page</a>
+                <a class="collapse-item" href="page.php">Liste des pages</a>
+                <a class="collapse-item" href="page-add.php">Créer une page</a>
             </div>
         </div>
     </li>
@@ -43,12 +43,12 @@
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsemenu"
             aria-expanded="true" aria-controls="collapsemenu">
             <i class="fas fa-fw fa-bars"></i>
-            <span>Menu</span>
+            <span>Menus</span>
         </a>
         <div id="collapsemenu" class="collapse" aria-labelledby="headingUtilities"
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="menu.php">Afficher tous les menus</a>
+                <a class="collapse-item" href="menu.php"> Liste des menus</a>
                 <a class="collapse-item" href="menu-add.php">Créer un menu</a>
             </div>
         </div>
@@ -64,7 +64,7 @@
                 data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <a class="collapse-item" href="category.php">Catégories</a>
-                    <a class="collapse-item" href="news.php">Afficher des articles</a>
+                    <a class="collapse-item" href="news.php">Liste des articles</a>
                     <a class="collapse-item" href="news-add.php">Créer un article</a>
                 </div>
             </div>
@@ -79,7 +79,7 @@
             <div id="collapseservice" class="collapse" aria-labelledby="headingUtilities"
                 data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="service.php">Afficher des services</a>
+                    <a class="collapse-item" href="service.php">Liste des services</a>
                     <a class="collapse-item" href="service-add.php">Créer un service</a>
                 </div>
             </div>
@@ -91,7 +91,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="social.php">
             <i class="fas fa-hashtag"></i>         
-            <span>Réseaux sociaux</span>
+            <span>Liens de réseaux sociaux</span>
         </a>
     </li>
     <li class="nav-item">

@@ -172,14 +172,14 @@ foreach ($result as $row) {
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="name">Nom du service <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control text-capitalize" required value="<?php echo $name;?>" id="name" name="name" placeholder="Entrez le nom du service">
+                        <input type="text" class="form-control" required value="<?php echo $name;?>" id="name" name="name" placeholder="Entrez le nom du service">
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label for="slug-page">Slug <span class="text-muted">(Optional)</span></label>
-                        <input type="text" class="form-control text-lowercase" id="slug-page" value="<?php echo $slug;?>" name="slug" placeholder="Example: nom-du-service">
-                        <span class="text-muted text-sm-left">generate slug automatic.</span>
+                        <label for="slug-page">Lien personnalisé <span class="text-muted">(Optionnel)</span></label>
+                        <input type="text" class="form-control text-lowercase" id="slug-page" value="<?php echo $slug;?>" name="slug" placeholder="Exemple: nom-du-service">
+                        <span class="text-muted text-sm-left">laisse vide pour génerer automatiquement</span>
                     </div>
                 </div>
                 <div class="col-md-12">
@@ -190,13 +190,13 @@ foreach ($result as $row) {
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label>Section de contenu à gauche <span class="text-muted">(Optional)</span></label>
+                        <label>Section de contenu à gauche <span class="text-muted">(Optionnel)</span></label>
                         <textarea rows="15" minlength="200" class="form-control" name="section_left" style="min-height: 150px;" id="content-news"><?php echo $section_left ?></textarea>
 					</div>	
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label>Section de contenu à droite <span class="text-muted">(Optional)</span></label>
+                        <label>Section de contenu à droite <span class="text-muted">(Optionnel)</span></label>
                         <textarea rows="15" minlength="200" class="form-control" name="section_right" style="min-height: 150px;" id="content-news"><?php echo $section_right ?></textarea>
 					</div>	
                 </div>
@@ -219,7 +219,7 @@ foreach ($result as $row) {
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="banner">Bannière <span class="text-danger">*</span></label>
+                                <label for="banner">Image <span class="text-danger">*</span></label>
                                 <input type="file" class="form-control" name="banner" id="banner">
                                 <span class="text-muted text-sm-left">Seuls les jpg, jpeg, gif et png sont autorisés.</span>
                             </div>

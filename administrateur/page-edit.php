@@ -135,8 +135,8 @@ if(!isset($_REQUEST['id'])) {
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="name-page">Page de nom <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control text-capitalize" required id="name-page" value="<?php echo $page_name; ?>" name="page_name" placeholder="Entrez le nom de la page">
+                        <label for="name-page">Titre de la page <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" required id="name-page" value="<?php echo $page_name; ?>" name="page_name" placeholder="Entrez le nom de la page">
                     </div>
                 </div>
                 <input type="hidden" name="old_banner" value="<?php echo $banner ?>">
@@ -153,9 +153,10 @@ if(!isset($_REQUEST['id'])) {
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label for="slug-page">Slug <span class="text-muted">(Optional)</span></label>
-                        <input type="text" class="form-control text-lowercase" id="slug-page" value="<?php echo $page_slug; ?>" name="slug" placeholder="Example: about-us">
-                        <span class="text-muted text-sm-left">generate slug automatic.</span>
+                        <label for="slug-page">Lien personnalisé <span class="text-muted">(Optionnel)</span></label>
+                        <input type="text" class="form-control text-lowercase" id="slug-page" value="<?php echo $page_slug; ?>" name="slug" placeholder="Exemple: 
+ à-propos-de-nous">
+                        <span class="text-muted text-sm-left">laisse vide pour génerer automatiquement</span>
                     </div>
                 </div>
                 <div class="col-md-12">
@@ -177,7 +178,7 @@ if(!isset($_REQUEST['id'])) {
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="photo">Bannière (1280x375) <span class="text-danger">*</span></label>
+                                <label for="photo">Image (1280x375) <span class="text-danger">*</span></label>
                                 <input type="file" class="form-control" name="photo" id="photo">
                                 <span class="text-muted text-sm-left">Seuls les jpg, jpeg, gif et png sont autorisés.</span>
                             </div>
@@ -200,19 +201,19 @@ if(!isset($_REQUEST['id'])) {
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label for="title">Meta title <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" required value="<?php echo $meta_title; ?>" id="title" name="meta_title" placeholder="Meta Title">
+                        <label for="title">Meta titre <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" required value="<?php echo $meta_title; ?>" id="title" name="meta_title" placeholder="Meta titre">
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label for="key">Meta Keyword <span class="text-muted">(Optional)</span></label>
-                        <textarea rows="4" class="form-control" id="key" name="meta_keyword" style="min-height: 50px;" placeholder="Example: handcomm,blog,website,..."><?php echo $meta_keyword; ?></textarea>
+                        <label for="key">Badger mot clé <span class="text-muted">(Optionnel)</span></label>
+                        <textarea rows="4" class="form-control" id="key" name="meta_keyword" style="min-height: 50px;" placeholder="Exemple: handcomm,blog,website,..."><?php echo $meta_keyword; ?></textarea>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label for="description">Meta Description <span class="text-muted">(Optional)</span></label>
+                        <label for="description">Meta Description <span class="text-muted">(Optionnel)</span></label>
                         <textarea rows="8" class="form-control" id="description" placeholder="Meta Description..." name="meta_description" style="min-height: 150px;"><?php echo $meta_description; ?></textarea>
                     </div>
                 </div>

@@ -8,7 +8,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; <?php echo  date('Y'); ?> by <code></></code> Youssef</span>
+                        <span>Copyright &copy; <?php echo  date('Y'); ?> by <code></></code> <a href="https://www.webmarko.com/">webmarko</a></span>
                     </div>
                 </div>
             </footer>
@@ -66,6 +66,7 @@
         $(function(){
             "use strict";
             $('[data-toggle="tooltip"]').tooltip();
+            $('.home_page').summernote({height: 100});
             $('#content_page,#content-news').summernote({
                 height: 300,
             });
@@ -98,6 +99,30 @@
             var input = this;
             var $this = $(this);
             var $parent = $('.parent-banner');
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $parent.find('img').attr("src", "" + e.target.result + "");
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        });
+        $("#header-img").change(function() {
+            var input = this;
+            var $this = $(this);
+            var $parent = $('.header-img');
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $parent.find('img').attr("src", "" + e.target.result + "");
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        });
+        $("#about-img").change(function() {
+            var input = this;
+            var $this = $(this);
+            var $parent = $('.about-img');
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
                 reader.onload = function(e) {

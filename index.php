@@ -1,84 +1,37 @@
 <?php
 require_once('inc/header.php')
 ?>
-<?php
-$statement = $pdo->prepare("SELECT * FROM settings WHERE id=1");
-$statement->execute();
-$result = $statement->fetchAll(PDO::FETCH_ASSOC);
-foreach ($result as $row) {
-    /* Page Home Start */
-    $header_title            = $row['header_title'];
-    $header_subtitle         = $row['header_subtitle'];
-    $header_description      = $row['header_description'];
-    $header_image            = $row['header_image'];
-    $header_nameButton       = $row['header_nameButton'];
-    $header_buttonUrl        = $row['header_buttonUrl'];
-    $header_status           = $row['header_status'];
-    $service_title           = $row['service_title'];
-    $service_subtitle        = $row['service_subtitle'];
-    $service_status          = $row['service_status'];
-    $about_title             = $row['about_title'];
-    $about_subtitle          = $row['about_subtitle'];
-    $about_description       = $row['about_description'];
-    $about_shortDescription  = $row['about_shortDescription'];
-    $about_image             = $row['about_image'];
-    $about_status            = $row['about_status'];
-    $references_title        = $row['references_title'];
-    $references_subtitle     = $row['references_subtitle'];
-    $references_nameButton   = $row['references_nameButton'];
-    $references_buttonUrl    = $row['references_buttonUrl'];
-    $references_shortLine    = $row['references_shortLine'];
-    $references_status       = $row['references_status'];
-    $partner_title           = $row['partner_title'];
-    $partner_subtitle        = $row['partner_subtitle'];
-    $partner_nameButton      = $row['partner_nameButton'];
-    $partner_buttonUrl       = $row['partner_buttonUrl'];
-    $partner_shortLine       = $row['partner_shortLine'];
-    $partner_status          = $row['partner_status'];
-    $contact_title           = $row['contact_title'];
-    $contact_subtitle        = $row['contact_subtitle'];
-    $contact_status          = $row['contact_status'];
-    /* End Page Home */
-}
-?>
 <!--Start Hero-->
-<?php if ($header_status == 1): ?>
 <section class="hero-section hero-bg-bg1">
     <div class="text-block">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 v-center">
                     <div class="header-heading">
-                        <?php if($header_subtitle != ''): ?>
-                        <span class="mb-1"><?php echo $header_subtitle; ?></span>
-                        <?php endif; ?>
-                        <h1 class="wow fadeInUp" data-wow-delay=".2s"><?php echo $header_title; ?></h1>
-                        <p class="wow fadeInUp" data-wow-delay=".4s"><?php echo $header_description; ?></p>
-                        <?php if ($header_nameButton != ''): ?>
-                        <a href="<?php echo $header_buttonUrl != '' ? $header_buttonUrl : '#'; ?>" class="btn-main bg-btn lnk wow fadeInUp" data-wow-delay=".6s"><?php echo $header_nameButton; ?> <i class="fas fa-chevron-right fa-icon"></i><span class="circle"></span></a>
-                        <?php endif; ?>
+                        <h1 class="wow fadeInUp" data-wow-delay=".2s">Agenge Digitale HAND'COMM</h1>
+                        <p class="wow fadeInUp" data-wow-delay=".4s">Une offre de compétences en télétravail ou sur site, des consultants expérimentés dans leur spécialité, des durées d’intervention modulables,
+                            en fonction de vos besoins. Un seul site, un interlocuteur unique, pour augmenter vos résultats.</p>
+                        <a href="<?php echo BASE_URL ?>contact" class="btn-main bg-btn lnk wow fadeInUp" data-wow-delay=".6s">Demandez un devis gratuit<i class="fas fa-chevron-right fa-icon"></i><span class="circle"></span></a>
                     </div>
                 </div>
                 <div class="col-lg-6 v-center">
                     <div class="single-image wow fadeIn" data-wow-delay=".5s">
-                        <img src="<?php echo BASE_URL ?>assets/uploads/accueil/<?php echo $header_image; ?>" alt="Image Header Handcomm" class="img-fluid" />
+                        <img src="<?php echo BASE_URL ?>assets/uploads/slider/slide.png" alt="web development" class="img-fluid" />
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<?php endif; ?>
 <!--End Hero-->
 <!--Start Service-->
-<?php if($service_status == 1): ?>
 <section class="service-section web-servic pad-tb mb-4">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="common-heading">
-                    <span><?php echo $service_subtitle ?></span>
-                    <h2 class="mb30"><?php echo $service_title; ?></h2>
+                    <span>Services que nous offrons</span>
+                    <h2 class="mb30">Secrétariat Et Accueil Téléphonique</h2>
                 </div>
             </div>
         </div>
@@ -103,48 +56,39 @@ foreach ($result as $row) {
         </div>
     </div>
 </section>
-<?php endif; ?>
 <!--End Service-->
 
 <!--Start About-->
-<?php if($about_status == 1): ?>
 <section class="about-agency">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 v-center">
                 <div class="image-block">
-                    <?php if($about_image != '' && $about_image != 'defualt-accueil.jpg'): ?>
-                        <img src="<?php echo  BASE_URL ?>assets/uploads/accueil/<?php echo $about_image; ?>" alt="Photo About us Handcomm" class="img-fluid no-shadow" />
-                    <?php else: ?>
-                        <img src="<?php echo  BASE_URL ?>assets/uploads/images/about.jpg" alt="About us Handcomm" class="img-fluid no-shadow" />
-                    <?php endif; ?>
+                    <img src="assets/uploads/images/about.jpg" alt="about" class="img-fluid no-shadow" />
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="common-heading text-l">
-                    <span><?php echo $about_subtitle; ?></span>
-                    <h2><?php echo $about_title; ?></h2>
-                    <p><?php echo $about_description; ?></p>
-                    <?php if($about_shortDescription != ''): ?>
-                    <p class="quote"><?php echo $about_shortDescription; ?></p>
-                    <?php endif; ?>
+                    <span>SAVOIR FAIRE</span>
+                    <h2>HAND’COMM</h2>
+                    <p>Hand’Comm travaille avec un vaste réseau de consultants, tous spécialisés et expérimentés dans leur domaine
+                        de compétences respectif. Secrétaires, graphistes, développeurs, référenceurs, community managers, rédacteurs, traducteurs… </p>
+                    <p class="quote">Ils interviennent à votre demande de manière ponctuelle ou régulière, selon vos besoins et votre budget.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<?php endif; ?>
 <!--End About-->
 
 <!--Start Portfolio-->
-<?php if ($references_status == 1):?>
 <section class="portfolio-page pad-tb">
     <div class="container">
         <div class="row justify-content-left">
             <div class="col-lg-6">
                 <div class="common-heading pp">
-                    <span><?php echo $references_subtitle ?></span>
-                    <h2><?php echo $references_title; ?></h2>
+                    <span>Nos derniers projets</span>
+                    <h2>Nos Références</h2>
                 </div>
             </div>
             <div class="col-lg-6 v-center">
@@ -197,25 +141,21 @@ foreach ($result as $row) {
     </div>
     <div class="-cta-btn mt70">
         <div class="free-cta-title v-center wow zoomInDown" data-wow-delay=".9s">
-            <p><?php echo $references_shortLine; ?></p>
-            <?php if($references_nameButton != ''): ?>
-            <a href="<?php echo $references_buttonUrl != '' ? $references_buttonUrl : '#'; ?>" class="btn-main bg-btn2 lnk"><?php echo $references_nameButton; ?> <i class="fas fa-chevron-right fa-icon"></i><span class="circle"></span></a>
-            <?php endif; ?>
+            <p>Découvrez plus de <span>références</span></p>
+            <a href="#" class="btn-main bg-btn2 lnk">Voir maintenant<i class="fas fa-chevron-right fa-icon"></i><span class="circle"></span></a>
         </div>
     </div>
 </section>
-<?php endif; ?>
 <!--End Portfolio-->
 
 <!--Start Clients-->
-<?php if($partner_status == 1): ?>
 <section class="clients-section pad-tb">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="common-heading">
-                    <span><?php echo $partner_subtitle; ?></span>
-                    <h2><?php echo $partner_title; ?></h2>
+                    <span>Ils nous font confiance</span>
+                    <h2>Nos partenaires</h2>
                 </div>
             </div>
         </div>
@@ -244,28 +184,24 @@ foreach ($result as $row) {
         </div>
         <div class="-cta-btn mt70">
             <div class="free-cta-title v-center wow zoomInDown" data-wow-delay="1.2s">
-                <p><?php echo $partner_shortLine; ?></p>
-                <?php if ($partner_nameButton != ''): ?>
-                <a href="<?php $partner_buttonUrl != '' ? $partner_buttonUrl : '#'; ?>" class="btn-main bg-btn2 lnk"><?php echo $partner_nameButton; ?> <i class="fas fa-chevron-right fa-icon"></i><span class="circle"></span></a>
-                <?php endif; ?>
+                <p>On <span>promet.</span> Nous <span>livrons. </span></p>
+                <a href="#" class="btn-main bg-btn2 lnk">Travaillons ensemble<i class="fas fa-chevron-right fa-icon"></i><span class="circle"></span></a>
             </div>
         </div>
     </div>
 </section>
-<?php endif; ?>
 <!--End Clients-->
 
 
 
 <!--Start Enquire Form-->
-<?php if($contact_status == 1): ?>
 <section class="enquire-form pad-tb">
     <div class="container">
         <div class="row light-bgs">
             <div class="col-lg-6">
                 <div class="common-heading text-l">
-                    <span><?php echo $contact_subtitle; ?></span>
-                    <h2 class="mt0"><?php echo $contact_title; ?></h2>
+                    <span>Vous avez des questions?</span>
+                    <h2 class="mt0">CONTACTEZ NOUS</h2>
                 </div>
                 <div class="form-block">
                     <form action="#" method="post" name="feedback-form">
@@ -295,7 +231,6 @@ foreach ($result as $row) {
         </div>
     </div>
 </section>
-<?php endif; ?>
 <!--End Enquire Form-->
 
 

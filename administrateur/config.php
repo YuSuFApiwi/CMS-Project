@@ -1,20 +1,18 @@
 <?php
 /* Hide Error in the page */
 ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-//error_reporting(E_ALL);
-//error_reporting(FT_NOT);
+
 /* Info Host (Host Name)*/
-$dbhost = 'localhost';
+$dbhost = 'sql303.epizy.com';
 /* Database Name */
-$dbname = 'pro_handcomm';
+$dbname = 'epiz_31061339_w940';
 /* Database Username */
-$dbuser = 'root';
+$dbuser = 'epiz_31061339';
 /* Database Password */
-$dbpass = '';
+$dbpass = 'w1IAwuMc0hpmi';
 
 /* Public Pathe the Localhost here */
-define("BASE_URL", 'http://localhost/Project-me/cms-project/');
+define("BASE_URL", 'http://deltamultimedia.42web.io/');
 /* Pathe Administrateur */
 define("ADMIN_URL", BASE_URL . "administrateur" . "/");
 

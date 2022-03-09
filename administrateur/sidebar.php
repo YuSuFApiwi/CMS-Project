@@ -2,12 +2,11 @@
 <ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
-        <div class="sidebar-brand-text mx-3">Handcomm</div>
+    <a class="sidebar-brand d-flex bg-white align-items-center justify-content-center" href="index.php">
+        <div class="sidebar-brand-logo mx-3">
+            <img class="" src='images/logo.png' width="100%" height="70px" alt="" />
+        </div>
     </a>
-
-    <!-- Divider -->
-    <hr class="sidebar-divider my-0">
 
     <li class="nav-item active">
         <a class="nav-link" href="index.php">

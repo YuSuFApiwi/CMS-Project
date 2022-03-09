@@ -10,7 +10,10 @@ if(!isset($_SESSION['utilisateur'])) {
 	exit;
 }
 /* This is here script header */
-include_once('includes/function.php');
+
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

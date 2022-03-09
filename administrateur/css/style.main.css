@@ -12,19 +12,10 @@
     border-radius: 20px;
     position: relative;
 }
-.header-img{
-    padding: 2px 0;
-    width: 64vh;
-    /* height: 37vh; */
-    border: 3px dashed #e5e9f2;
-    border-radius: 20px;
-    position: relative;
-}
 
 .avatar .avatar-inner img,
 .logo-setting .logo-setting-inner img,
-.favicon-setting .favicon-setting-inner img,
-.header-img .header-img-inner img {
+.favicon-setting .favicon-setting-inner img {
     border-radius: 20px;
     -o-object-fit: cover;
         object-fit: cover;
